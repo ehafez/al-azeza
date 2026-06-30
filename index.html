@@ -13,6 +13,8 @@
 </head>
 <body>
 
+    <button id="backToTop" class="back-to-top" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
+
     <!-- 1. شريط النصوص الفاخر والمتحرك -->
     <div class="luxury-ticker-container">
         <div class="ticker-title"><i class="fa-solid fa-star-of-life pulse-icon"></i> نفحات</div>
@@ -46,6 +48,7 @@
 
     <!-- 3. قسم التحية الفاخر والشعار القرآني الثابت (البطولة والأمل الشروق) -->
     <section class="hero-section luxury-hero animate-fade-in">
+        <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
         <div class="container">
             <div class="quran-logo-badge mb-4">
                 <div class="quran-logo-title">﷽</div>
@@ -72,7 +75,7 @@
     </section>
 
     <!-- 4. خانة التعاميم ومجالات الدعم المتاحة -->
-    <section class="container my-5">
+    <section class="container my-5 reveal-on-scroll">
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="luxury-card p-4 h-100">
@@ -98,8 +101,48 @@
         </div>
     </section>
 
+    <!-- 4.5 كيف تعمل المنصة (آلية العمل) -->
+    <section class="container my-5 reveal-on-scroll">
+        <h3 class="text-center fw-bold mb-2 section-title luxury-gold-title-sm">كيف تعمل المنصة؟</h3>
+        <p class="text-center text-muted small mb-4">أربع خطوات تفصل بين طلبك وبين يد تمتد لمساعدتك</p>
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="step-card text-center p-3">
+                    <div class="step-number">01</div>
+                    <i class="fa-solid fa-clipboard-list step-icon mb-2"></i>
+                    <h6 class="fw-bold">تسجيل الطلب</h6>
+                    <p class="text-muted small mb-0">تعبئة استمارة بسيطة من قبل العائلة أو المتطوع.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="step-card text-center p-3">
+                    <div class="step-number">02</div>
+                    <i class="fa-solid fa-people-arrows step-icon mb-2"></i>
+                    <h6 class="fw-bold">الفرز والمطابقة</h6>
+                    <p class="text-muted small mb-0">فريقنا يدرس الحاجة ويطابقها مع الكفاءة المناسبة.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="step-card text-center p-3">
+                    <div class="step-number">03</div>
+                    <i class="fa-solid fa-helmet-safety step-icon mb-2"></i>
+                    <h6 class="fw-bold">التنفيذ الميداني</h6>
+                    <p class="text-muted small mb-0">انطلاق الفرق إلى الأرض لتنفيذ أعمال الترميم.</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="step-card text-center p-3">
+                    <div class="step-number">04</div>
+                    <i class="fa-solid fa-house-circle-check step-icon mb-2"></i>
+                    <h6 class="fw-bold">التسليم والمتابعة</h6>
+                    <p class="text-muted small mb-0">تسليم المنزل ومتابعة دورية لضمان جودة العمل.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 5. خرائط العمل الجغرافي بالجنوب -->
-    <section class="container my-5">
+    <section class="container my-5 reveal-on-scroll">
         <h3 class="text-center fw-bold mb-4 section-title luxury-gold-title-sm">خرائط العمل الجغرافي بالجنوب</h3>
         <div class="luxury-card p-4 text-center bg-dark text-white">
             <p class="mb-3 small">اختر قضاءك أو بلدتك على الخارطة لتحديد احتياجات الإعمار ومكان تواجد الفرق الميدانية</p>
@@ -116,7 +159,7 @@
     </section>
 
     <!-- 6. رادارات وفرز المساهمات -->
-    <section class="container my-5">
+    <section class="container my-5 reveal-on-scroll">
         <h3 class="text-center fw-bold mb-4 section-title luxury-gold-title-sm">رادارات وفرز المساهمات</h3>
         <div class="row g-4 text-center">
             <div class="col-md-4">
@@ -143,40 +186,138 @@
         </div>
     </section>
 
+    <!-- 6.5 معرض إنجازاتنا (قبل وبعد) -->
+    <section class="container my-5 reveal-on-scroll">
+        <h3 class="text-center fw-bold mb-2 section-title luxury-gold-title-sm">معرض إنجازاتنا</h3>
+        <p class="text-center text-muted small mb-4">لمحات من منازل أعدنا لها الحياة بسواعد المتطوعين</p>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="ترميم منزل في الجنوب">
+                    <div class="gallery-overlay"><span class="badge bg-warning text-dark">بنت جبيل</span></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80" alt="ورشة إعمار تطوعية">
+                    <div class="gallery-overlay"><span class="badge bg-warning text-dark">صور</span></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=600&q=80" alt="فريق متطوعين في العمل">
+                    <div class="gallery-overlay"><span class="badge bg-warning text-dark">النبطية</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6.6 قصص نجاح -->
+    <section class="container my-5 reveal-on-scroll">
+        <h3 class="text-center fw-bold mb-4 section-title luxury-gold-title-sm">قصص نجاح</h3>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="testimonial-card mx-auto">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p class="Amiri-font fs-5">"بعد ما تهدّم بيتنا، ما كنت مصدّق حدا رح يساعدنا. فريق الأعزاء رمّم البيت بكرامة وما خلّونا نحس حالنا لحالنا."</p>
+                        <h6 class="fw-bold text-gold mt-3 mb-0">أم محمد</h6>
+                        <span class="text-muted small">قضاء بنت جبيل</span>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-card mx-auto">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p class="Amiri-font fs-5">"تطوعت كمهندس مع المنصة، والتنسيق كان احترافي جداً، من تسجيل الطلب لحتى تسليم المفتاح للعائلة."</p>
+                        <h6 class="fw-bold text-gold mt-3 mb-0">المهندس حسين</h6>
+                        <span class="text-muted small">متطوع - قطاع هندسي</span>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial-card mx-auto">
+                        <i class="fa-solid fa-quote-right quote-icon"></i>
+                        <p class="Amiri-font fs-5">"من الاغتراب، تبرعنا بمواد بناء عبر المنصة وتابعنا كل خطوة بالصور. حسينا حالنا قريبين من الأرض رغم البعد."</p>
+                        <h6 class="fw-bold text-gold mt-3 mb-0">عائلة لبنانية مغتربة</h6>
+                        <span class="text-muted small">أستراليا</span>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
     <!-- 7. عدّاد الإنجاز -->
-    <section class="container my-5">
+    <section class="container my-5 reveal-on-scroll">
         <div class="row g-3">
             <div class="col-6 col-md-3">
                 <div class="counter-card luxury-card">
-                    <div class="counter-number">+1,250</div>
+                    <div class="counter-number" data-count="1250">0</div>
                     <div class="text-muted small fw-bold">متطوع مسجل</div>
                 </div>
             </div>
             <div class="col-6 col-md-3">
                 <div class="counter-card luxury-card">
-                    <div class="counter-number">48</div>
+                    <div class="counter-number" data-count="48">0</div>
                     <div class="text-muted small fw-bold">منزلاً تم ترميمه</div>
                 </div>
             </div>
             <div class="col-6 col-md-3">
                 <div class="counter-card luxury-card">
-                    <div class="counter-number">22</div>
+                    <div class="counter-number" data-count="22">0</div>
                     <div class="text-muted small fw-bold">شركة ومصنع مساهم</div>
                 </div>
             </div>
             <div class="col-6 col-md-3">
                 <div class="counter-card luxury-card">
-                    <div class="counter-number">85</div>
+                    <div class="counter-number" data-count="85">0</div>
                     <div class="text-muted small fw-bold">طلب قيد التنفيذ</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 7.5 شركاؤنا الداعمون -->
+    <section class="container my-5 reveal-on-scroll">
+        <h3 class="text-center fw-bold mb-4 section-title luxury-gold-title-sm">شركاؤنا الداعمون</h3>
+        <div class="row g-3 justify-content-center text-center">
+            <div class="col-6 col-md-2"><div class="partner-badge"><i class="fa-solid fa-hands-holding-circle"></i><span>مؤسسة الخير</span></div></div>
+            <div class="col-6 col-md-2"><div class="partner-badge"><i class="fa-solid fa-building-columns"></i><span>جمعية البناء</span></div></div>
+            <div class="col-6 col-md-2"><div class="partner-badge"><i class="fa-solid fa-trowel-bricks"></i><span>اتحاد المقاولين</span></div></div>
+            <div class="col-6 col-md-2"><div class="partner-badge"><i class="fa-solid fa-leaf"></i><span>رابطة المغتربين</span></div></div>
+            <div class="col-6 col-md-2"><div class="partner-badge"><i class="fa-solid fa-people-group"></i><span>تجمع المتطوعين</span></div></div>
+        </div>
+    </section>
+
+
     <!-- 8. تذييل الصفحة الفاخر -->
-    <footer class="luxury-footer text-center py-4 mt-5">
-        <p class="mb-1 small fw-bold text-gold">منصة الأعزاء © 2026 - مبادرة أهلية تطوعية تكافلية</p>
-        <p class="text-muted small px-3" style="font-size: 0.8rem;">كل البيانات المرفوعة تخضع لسياسة خصوصية وأمان صارمة لحفظ كرامة وأمن أهالينا.</p>
+    <footer class="luxury-footer text-center py-5 mt-5">
+        <div class="container">
+            <div class="luxury-brand-logo justify-content-center mb-3">
+                <i class="fa-solid fa-hand-holding-heart me-2 brand-icon"></i>الأعزّاء
+            </div>
+
+            <div class="social-row mb-4">
+                <a href="#" class="social-icon" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon" aria-label="انستغرام"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon" aria-label="واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="social-icon" aria-label="إكس"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+
+            <form id="form-newsletter" class="newsletter-form mx-auto mb-4">
+                <div class="input-group">
+                    <input type="email" class="form-control newsletter-input" placeholder="بريدك الإلكتروني للانضمام لنشرتنا" required>
+                    <button class="btn btn-gold-primary fw-bold" type="submit">اشتراك</button>
+                </div>
+            </form>
+
+            <p class="mb-1 small fw-bold text-gold">منصة الأعزاء © 2026 - مبادرة أهلية تطوعية تكافلية</p>
+            <p class="text-muted small px-3" style="font-size: 0.8rem;">كل البيانات المرفوعة تخضع لسياسة خصوصية وأمان صارمة لحفظ كرامة وأمن أهالينا.</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

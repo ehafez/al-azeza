@@ -78,4 +78,90 @@ document.addEventListener('DOMContentLoaded', function () {
             window.location.href = 'index.html';
         });
     }
+
+    // 5. توليد جسيمات ذهبية عائمة في قسم الترحيب
+    const particlesContainer = document.getElementById('heroParticles');
+    if (particlesContainer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const particleCount = window.innerWidth < 576 ? 12 : 22;
+        for (let i = 0; i < particleCount; i++) {
+            const p = document.createElement('span');
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDuration = (6 + Math.random() * 8) + 's';
+            p.style.animationDelay = (Math.random() * 10) + 's';
+            p.style.width = p.style.height = (3 + Math.random() * 3) + 'px';
+            particlesContainer.appendChild(p);
+        }
+    }
+
+    // 6. كشف الأقسام تدريجياً عند التمرير
+    const revealEls = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window && revealEls.length) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealEls.forEach(el => revealObserver.observe(el));
+    } else {
+        revealEls.forEach(el => el.classList.add('in-view'));
+    }
+
+    // 7. عدّاد متحرك للأرقام الإنجازية
+    const counterEls = document.querySelectorAll('.counter-number[data-count]');
+    if ('IntersectionObserver' in window && counterEls.length) {
+        const animateCounter = (el) => {
+            const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+            const duration = 1400;
+            const startTime = performance.now();
+            function step(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(eased * target);
+                el.textContent = current.toLocaleString('en-US');
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    el.textContent = '+' + target.toLocaleString('en-US');
+                }
+            }
+            requestAnimationFrame(step);
+        };
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        counterEls.forEach(el => counterObserver.observe(el));
+    }
+
+    // 8. زر العودة إلى الأعلى
+    const backToTopBtn = document.getElementById('backToTop');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // 9. محاكاة الاشتراك بالنشرة الإخبارية
+    const newsletterForm = document.getElementById('form-newsletter');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('شكراً لانضمامك إلى نشرة الأعزاء، سنوافيك بآخر مستجدات الإعمار أولاً بأول.');
+            newsletterForm.reset();
+        });
+    }
 });
