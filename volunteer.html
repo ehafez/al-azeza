@@ -5,28 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة التطوع والانتساب - منصة الأعزاء</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar navbar-light bg-white shadow-sm sticky-top luxury-nav">
-        <div class="container">
-            <a class="btn btn-sm btn-outline-secondary" href="index.html"><i class="fa-solid fa-arrow-right me-1"></i> عودة للرئيسية</a>
-            <span class="navbar-brand mb-0 h1 m-auto text-gold">بوابة الانتساب والتطوع للخدمات</span>
-        </div>
-    </nav>
+    <button id="backToTop" class="back-to-top" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <div class="container my-4" style="max-width: 600px;">
+    <!-- ترويسة الصفحة -->
+    <header class="page-hero">
+        <div class="container top-row d-flex justify-content-between align-items-center">
+            <a class="btn btn-sm btn-outline-warning back-btn" href="index.html"><i class="fa-solid fa-arrow-right me-1"></i> عودة للرئيسية</a>
+            <a href="index.html" class="luxury-brand-logo small-logo text-decoration-none">
+                <i class="fa-solid fa-hand-holding-heart me-2 brand-icon"></i>الأعزّاء
+            </a>
+        </div>
+        <div class="container text-center">
+            <h1 class="page-hero-title"><i class="fa-solid fa-user-plus me-2 pulse-icon"></i>بوابة الانتساب والتطوع للخدمات</h1>
+            <p class="page-hero-sub Amiri-font">"وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ" .. بهمّتك وإيدك منرجع منعمّر الجنوب</p>
+        </div>
+    </header>
+
+    <div class="container my-5 reveal-on-scroll" style="max-width: 640px;">
         <div class="card shadow-sm border-0 p-4 luxury-card">
-            <p class="text-muted small text-center mb-4 fw-bold">أهلاً فيك يا راعي الخير، بـ همّتك وإيدك معنا منرجع منعمّر الجنوب.</p>
-            
+            <p class="text-muted small text-center mb-4 fw-bold">أهلاً فيك يا راعي الخير، عبّي الاستمارة وفريقنا رح يتواصل معك خلال 48 ساعة.</p>
+
             <form id="form-volunteer-submit">
                 <!-- نوع الانتساب -->
                 <div class="mb-4">
-                    <label class="form-label fw-bold"><i class="fa-solid fa-user-plus text-warning me-1"></i> خيار الانتساب للمنصة</label>
-                    <div class="d-flex gap-3">
+                    <div class="form-section-label"><i class="fa-solid fa-user-plus me-1"></i> خيار الانتساب للمنصة</div>
+                    <div class="d-flex gap-3 flex-wrap">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="volunteerType" id="typeIndividual" checked>
                             <label class="form-check-label" for="typeIndividual">فرد (طلب انتساب وتطوع)</label>
@@ -81,11 +92,19 @@
                     <input type="text" class="form-control" id="vRegion" required placeholder="مثال: قضاء بنت جبيل، قرى صور...">
                 </div>
 
-                <button type="submit" class="btn btn-gold-primary btn-cta w-100 mt-3 shadow-sm">إرسال طلب الانتساب والمساهمة</button>
+                <button type="submit" class="btn btn-gold-primary btn-cta w-100 mt-3 shadow-sm">
+                    <i class="fa-solid fa-paper-plane me-2"></i>إرسال طلب الانتساب والمساهمة
+                </button>
+                <p class="text-center text-muted small mt-3 mb-0"><i class="fa-solid fa-lock me-1"></i> بياناتك محفوظة بسرّية تامة</p>
             </form>
         </div>
     </div>
 
+    <footer class="site-footer-mini">
+        <span class="text-gold fw-bold">منصة الأعزاء</span> © 2026 - مبادرة أهلية تطوعية تكافلية
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

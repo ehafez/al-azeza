@@ -573,3 +573,170 @@ a:focus-visible, button:focus-visible, input:focus-visible {
         height: 42px;
     }
 }
+
+/* =========================================================
+   🌟 نظام موحّد للصفحات الداخلية (تطوع، أنشطة، تعاميم، دعم، خرائط)
+   ========================================================= */
+
+/* --- ترويسة الصفحات الداخلية --- */
+.page-hero {
+    background: linear-gradient(135deg, rgba(26, 25, 18, 0.97), rgba(12, 11, 7, 0.98));
+    border-bottom: 3px solid #ffda33;
+    padding: 14px 0 30px;
+}
+.page-hero .top-row {
+    padding: 10px 0 18px;
+}
+.page-hero .back-btn {
+    border-color: rgba(255, 218, 51, 0.5);
+    color: #ffda33;
+    font-weight: 700;
+    border-radius: 10px;
+}
+.page-hero .back-btn:hover {
+    background: #ffda33;
+    color: #1a1915;
+}
+.page-hero .small-logo {
+    font-size: 1.3rem !important;
+}
+.page-hero-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ffda33;
+    text-shadow: 0 0 12px rgba(255, 218, 51, 0.35);
+    margin-bottom: 8px;
+}
+.page-hero-sub {
+    color: #d8d5c8;
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- فوتر مصغّر للصفحات الداخلية --- */
+.site-footer-mini {
+    background: #1a1915;
+    border-top: 3px solid #ffda33;
+    color: #cfcabb;
+    text-align: center;
+    padding: 18px 12px;
+    font-size: 0.82rem;
+}
+.site-footer-mini .text-gold {
+    color: #ffda33 !important;
+}
+
+/* --- تحسين عناصر الاستمارات داخل luxury-card --- */
+.form-control:focus,
+.form-select:focus {
+    border-color: #ffda33;
+    box-shadow: 0 0 0 0.2rem rgba(255, 218, 51, 0.2);
+}
+.form-check-input:checked {
+    background-color: #cca400;
+    border-color: #cca400;
+}
+.form-section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #cca400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+/* --- بطاقات فئات الأنشطة (قابلة للنقر) --- */
+.category-card {
+    background: #fff;
+    border-radius: 14px;
+    border-top: 3px solid #ffda33;
+    box-shadow: 0 6px 18px rgba(204, 164, 0, 0.07);
+    padding: 22px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 26px rgba(204, 164, 0, 0.15);
+}
+.category-card.active {
+    border-top-color: #cca400;
+    background: #fffdf3;
+}
+.category-card i {
+    color: #cca400;
+}
+
+/* --- بطاقات الدعوات والفعاليات --- */
+.event-card {
+    border-radius: 14px;
+    border: 1px solid rgba(204, 164, 0, 0.12);
+    box-shadow: 0 6px 18px rgba(204, 164, 0, 0.06);
+    transition: all 0.3s ease;
+}
+.event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(204, 164, 0, 0.12);
+}
+.event-date-badge {
+    background: linear-gradient(135deg, #ffda33, #cca400);
+    color: #1a1915;
+    border-radius: 10px;
+    min-width: 64px;
+    line-height: 1.1;
+}
+
+/* --- بطاقات التعاميم --- */
+.bulletin-card {
+    border-right: 4px solid #ffda33;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+[dir="rtl"] .bulletin-card {
+    border-right: none;
+    border-left: 4px solid #ffda33;
+}
+.bulletin-card:hover {
+    transform: translateX(-2px);
+    box-shadow: 0 12px 26px rgba(204, 164, 0, 0.1);
+}
+.bulletin-card.urgent {
+    border-left-color: #e3502f;
+}
+
+/* --- بطاقات الأقضية في صفحة الخرائط --- */
+.region-row {
+    border: 1px solid rgba(255, 218, 51, 0.18);
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+.region-row:hover {
+    background: rgba(255, 218, 51, 0.08) !important;
+    border-color: #ffda33;
+    transform: translateX(-3px);
+}
+.region-row .badge.urgent-badge {
+    animation: luxuryPulse 2s infinite ease-in-out;
+}
+
+/* --- شريط فلترة بسيط (chips) --- */
+.filter-chip {
+    border: 1px solid rgba(204, 164, 0, 0.35);
+    color: #4a4736;
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: #fff;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.filter-chip.active,
+.filter-chip:hover {
+    background: linear-gradient(135deg, #ffda33, #cca400);
+    color: #1a1915;
+    border-color: transparent;
+}
