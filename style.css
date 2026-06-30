@@ -5,6 +5,10 @@ body {
     overflow-x: hidden;
 }
 
+.Amiri-font {
+    font-family: 'Amiri', serif;
+}
+
 /* --- 🌟 شريط النصوص الفاخر والمتحرك (Luxury News Ticker) --- */
 .luxury-ticker-container {
     display: flex;
@@ -68,22 +72,42 @@ body {
     100% { transform: translate3d(100%, 0, 0); }
 }
 
-/* --- 🌟 تعديل إطار وشعار الآية القرآنية ليكون في الوسط تماماً --- */
+/* --- 🌟 تصميم لوغو "الأعزاء" الفاخر بالخط العربي --- */
+.luxury-brand-logo {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    display: flex;
+    align-items: center;
+}
+
+.header-spiritual-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #4a4736 !important;
+    letter-spacing: 0.5px;
+}
+
+/* --- 🌟 تصميم إطار وشعار الآية القرآنية في الوسط تماماً --- */
 .quran-logo-badge {
-    background: linear-gradient(135deg, rgba(34, 32, 22, 0.95), rgba(15, 14, 10, 0.98));
+    background: linear-gradient(135deg, rgba(26, 25, 18, 0.96), rgba(12, 11, 7, 0.98));
     border: 2px solid #ffda33;
     border-radius: 15px;
     padding: 15px 25px;
-    display: block;          /* تم التغيير إلى block ليتيح التوسط الكامل */
-    max-width: 650px;        /* عرض أقصى متناسق ومريح للعين */
-    margin: 0 auto 35px auto;/* الهامش السحري: 0 يمين ويسار يجعله في المنتصف تماماً، و35px مسافة للأسفل */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-    text-align: center;      /* لضمان توسط النصوص الداخلية */
+    display: block;
+    max-width: 650px;
+    margin: 0 auto 35px auto;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 .quran-logo-title {
     font-family: 'Amiri', serif;
-    font-size: 1.8rem;       /* تكبير خفيف للبسملة المذهبة */
+    font-size: 1.8rem;
     color: #ffda33;
     margin-bottom: 8px;
     font-weight: 700;
@@ -91,7 +115,7 @@ body {
 
 .quran-logo-verse {
     font-family: 'Amiri', serif;
-    font-size: 1.45rem;      /* حجم واضح جداً وفاخر للقراءة */
+    font-size: 1.45rem;
     color: #ffffff;
     font-weight: 700;
     line-height: 1.6;
@@ -99,38 +123,54 @@ body {
     text-shadow: 0 2px 4px rgba(0,0,0,0.9);
 }
 
-/* تهيئة فاخرة وخاصة للموبايل لضمان بقاء الإطار في المنتصف بشكل جذاب */
-@media (max-width: 768px) {
-    .quran-logo-badge {
-        max-width: 95%;       /* يأخذ المساحة المتاحة على الشاشات الصغيرة */
-        padding: 12px 15px;
-        margin-bottom: 25px;
-    }
-    .quran-logo-verse {
-        font-size: 1.2rem;    /* حجم مثالي ومقروء جداً على شاشة الهاتف */
-    }
-}
-/* --- 🌟 تحسينات خلفية وقوة الواجهة (Luxury Hero) --- */
-.luxury-nav {
-    border-bottom: 1px solid rgba(204, 164, 0, 0.15);
-}
-.brand-icon {
-    color: #cca400;
-    animation: pulse 2s infinite;
+/* --- 🌟 تأثيرات الظلال الذهبية المشعة على العناوين (Gold Glow) --- */
+.luxury-gold-title {
+    color: #ffda33 !important;
+    text-shadow: 0 0 12px rgba(255, 218, 51, 0.6), 0 2px 4px rgba(0,0,0,0.8);
 }
 
-/* الخلفية الجديدة: تعكس شروق الأمل وعودة إعمار البيوت المتينة بالجنوب */
+.luxury-gold-title-sm {
+    color: #cca400 !important;
+    text-shadow: 0 0 8px rgba(204, 164, 0, 0.25);
+}
+
+/* --- 🌟 خلفية الأمل الفاخرة (شروق، أطفال، وسواعد الإعمار متجانسة) --- */
 .luxury-hero {
-    background: linear-gradient(rgba(24, 22, 14, 0.82), rgba(10, 9, 5, 0.95)), 
-                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+    background: linear-gradient(rgba(18, 16, 10, 0.8), rgba(8, 8, 4, 0.94)), 
+                url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80') no-repeat center center; /* شروق شمس وإعمار دافئ */
     background-size: cover;
-    padding: 60px 20px;
+    padding: 70px 20px;
     border-bottom: 4px solid #ffda33;
+}
+
+.luxury-sub-title {
+    color: #f1efea !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
 
 .sun-icon {
     color: #ffda33;
-    text-shadow: 0 0 10px rgba(255, 218, 51, 0.5);
+}
+
+/* --- 🌟 تأثير حركة النبض المستمر للأيقونات (Pulse Animation) --- */
+.brand-icon, .pulse-icon, .small-pulse {
+    animation: luxuryPulse 2s infinite ease-in-out;
+    display: inline-block;
+}
+
+.small-pulse {
+    animation-duration: 3s;
+}
+
+@keyframes luxuryPulse {
+    0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,218,51,0)); }
+    50% { transform: scale(1.08); filter: drop-shadow(0 0 6px rgba(255,218,51,0.6)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,218,51,0)); }
+}
+
+/* --- تحسينات الواجهة العامة والبطاقات --- */
+.luxury-nav {
+    border-bottom: 1px solid rgba(204, 164, 0, 0.15);
 }
 
 .btn-cta {
@@ -193,49 +233,12 @@ body {
     border-radius: 2px;
 }
 
-.luxury-step {
-    border: none;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.015);
-    border-radius: 16px;
-    background: #ffffff;
-    border: 1px solid rgba(204, 164, 0, 0.04);
-}
-
-.luxury-footer {
-    background: #1a1915;
-    border-top: 3px solid #ffda33;
-}
-.text-gold {
-    color: #ffda33 !important;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* تهيئة فاخرة للموبايل لضمان وضوح شعار الآية */
-@media (max-width: 768px) {
-    .ticker-item {
-        padding: 0 1.5rem;
-    }
-    .luxury-hero {
-        padding: 45px 10px;
-    }
-    .quran-logo-verse {
-        font-size: 1.15rem;
-    }
-}
-/* --- التحديثات الفاخرة الجديدة المضافة --- */
-
 .custom-list li {
     padding: 8px 0;
     border-bottom: 1px dashed rgba(255, 218, 51, 0.1);
     font-size: 0.95rem;
 }
 
-/* محاكاة حاوية الخرائط التفاعلية للموبايل */
 .mock-map-container {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
                 url('https://images.unsplash.com/photo-1524661135339-9140b00782ee?auto=format&fit=crop&w=800&q=80') no-repeat center center;
@@ -256,4 +259,46 @@ body {
 .badge {
     font-weight: 600;
     font-size: 0.85rem;
+}
+
+.counter-card {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(204, 164, 0, 0.08);
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid #ffda33;
+}
+.counter-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #cca400;
+}
+
+.luxury-footer {
+    background: #1a1915;
+    border-top: 3px solid #ffda33;
+}
+.text-gold {
+    color: #ffda33 !important;
+}
+
+/* تهيئة شاشات الموبايل المتجاوبة */
+@media (max-width: 768px) {
+    .ticker-item {
+        padding: 0 1.5rem;
+    }
+    .luxury-hero {
+        padding: 45px 10px;
+    }
+    .quran-logo-verse {
+        font-size: 1.15rem;
+    }
+    .luxury-brand-logo {
+        font-size: 1.5rem !important;
+    }
+    .luxury-gold-title {
+        font-size: 1.6rem !important;
+    }
 }

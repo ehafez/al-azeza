@@ -13,8 +13,9 @@
 </head>
 <body>
 
+    <!-- 1. شريط النصوص الفاخر والمتحرك -->
     <div class="luxury-ticker-container">
-        <div class="ticker-title"><i class="fa-solid fa-star-of-life"></i> نفحات</div>
+        <div class="ticker-title"><i class="fa-solid fa-star-of-life pulse-icon"></i> نفحات</div>
         <div class="ticker-wrap">
             <div class="ticker-move">
                 <span class="ticker-item Quran-text">🔹 قال الله تعالى في محكم كتابه: { وَكَانَ حَقًّا عَلَيْنَا نَصْرُ الْمُؤْمِنِينَ }</span>
@@ -24,47 +25,58 @@
         </div>
     </div>
 
+    <!-- 2. شريط التنقل العلوي الفاخر مع الشعار الروحاني والدعاء المستجاب -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top luxury-nav">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fa-solid fa-hand-holding-heart me-2 brand-icon"></i>منصة الأعزاء
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- الشعار الفاخر للمنصة بالخط العريق -->
+            <a class="navbar-brand luxury-brand-logo" href="#">
+                <i class="fa-solid fa-hand-holding-heart me-2 brand-icon"></i>الأعزّاء
             </a>
-            <a class="btn btn-outline-warning btn-sm fw-bold px-3" href="volunteer.html">
-                <i class="fa-solid fa-user-plus me-1"></i> طلب انتساب للمنصة
+            
+            <!-- نص روحاني طارد للهموم ويبعث على الطمأنينة في الهيدر -->
+            <div class="header-spiritual-text d-none d-md-block Amiri-font text-muted">
+                <i class="fa-solid fa-mosque text-warning me-1 small-pulse"></i> "اللَّهُمَّ اجْعَلْ هَذَا الْبَلَدَ آمِنًا وَارْزُقْ أَهْلَهُ"
+            </div>
+
+            <a class="btn btn-outline-warning btn-sm fw-bold px-3 header-btn" href="volunteer.html">
+                <i class="fa-solid fa-user-plus me-1 pulse-icon"></i> طلب انتساب للمنصة
             </a>
         </div>
     </nav>
 
-    <section class="hero-section luxury-hero">
+    <!-- 3. قسم التحية الفاخر والشعار القرآني الثابت (البطولة والأمل الشروق) -->
+    <section class="hero-section luxury-hero animate-fade-in">
         <div class="container">
             <div class="quran-logo-badge mb-4">
                 <div class="quran-logo-title">﷽</div>
                 <div class="quran-logo-verse">"مَن يَتَوَلَّ اللَّهَ وَرَسُولَهُ وَالَّذِينَ آمَنُوا فَإِنَّ حِزْبَ اللَّهِ هُمُ الْغَالِبُونَ"</div>
             </div>
 
-            <h1 class="fw-bold mb-3"><i class="fa-solid fa-sun me-2 sun-icon"></i>لأنهم الأعزاء... نلتقي لنعمر الجنوب</h1>
-            <p class="lead mb-4">منصتكم الأهلية التكافلية لربط كفاءات وإمكانيات المتطوعين والشركات بأهلنا الصامدين والعائدين لإعادة بناء وتأهيل منازلهم بنور الأمل والعمل.</p>
+            <!-- عناوين بتأثير الظل الذهبي المشع -->
+            <h1 class="fw-bold mb-3 luxury-gold-title"><i class="fa-solid fa-sun me-2 sun-icon pulse-icon"></i>لأنهم الأعزاء... نلتقي لنعمر الجنوب</h1>
+            <p class="lead mb-4 luxury-sub-title">منصتكم الأهلية التكافلية لربط كفاءات وإمكانيات المتطوعين والشركات بأهلنا الصامدين والعائدين لإعادة بناء وتأهيل منازلهم بنور الأمل والعمل.</p>
             
             <div class="row justify-content-center mt-4 g-3">
                 <div class="col-md-5 col-sm-12">
-                    <button id="btn-volunteer" class="btn btn-gold-primary btn-cta w-100 mb-2 shadow-sm">
-                        <i class="fa-solid fa-hammer me-2"></i> أريد أن أساعد (متطوع / شركة)
+                    <button id="btn-volunteer" class="btn btn-gold-primary btn-cta w-100 mb-2 shadow">
+                        <i class="fa-solid fa-hammer me-2 pulse-icon"></i> أريد أن أساعد (متطوع / شركة)
                     </button>
                 </div>
                 <div class="col-md-5 col-sm-12">
-                    <button id="btn-need-help" class="btn btn-charcoal-secondary btn-cta w-100 mb-2 shadow-sm">
-                        <i class="fa-solid fa-house-chimney-crack me-2"></i> أحتاج إلى دعم (فرد / عائلة)
+                    <button id="btn-need-help" class="btn btn-charcoal-secondary btn-cta w-100 mb-2 shadow">
+                        <i class="fa-solid fa-house-chimney-crack me-2 pulse-icon"></i> أحتاج إلى دعم (فرد / عائلة)
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 4. خانة التعاميم ومجالات الدعم المتاحة -->
     <section class="container my-5">
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="luxury-card p-4 h-100">
-                    <h5 class="fw-bold mb-3 text-gold"><i class="fa-solid fa-bullhorn me-2"></i> خانة التعاميم والموجّهات العامة</h5>
+                    <h5 class="fw-bold mb-3 text-gold luxury-gold-title-sm"><i class="fa-solid fa-bullhorn me-2 pulse-icon"></i> خانة التعاميم والموجّهات العامة</h5>
                     <ul class="list-unstyled custom-list">
                         <li><i class="fa-solid fa-circle-info me-2 text-warning"></i> توجيهات هندسية أولية لترميم التصدعات السطحية.</li>
                         <li><i class="fa-solid fa-circle-info me-2 text-warning"></i> آلية تنسيق حركة الآليات الثقيلة داخل البلدات الحدودية.</li>
@@ -74,7 +86,7 @@
             </div>
             <div class="col-md-6">
                 <div class="luxury-card p-4 h-100">
-                    <h5 class="fw-bold mb-3 text-gold"><i class="fa-solid fa-handshake-angle me-2"></i> مجالات الاستفادة والدعم المتاحة</h5>
+                    <h5 class="fw-bold mb-3 text-gold luxury-gold-title-sm"><i class="fa-solid fa-handshake-angle me-2 pulse-icon"></i> مجالات الاستفادة والدعم المتاحة</h5>
                     <div class="d-flex flex-wrap gap-2 mt-2">
                         <span class="badge bg-dark text-warning p-2"><i class="fa-solid fa-truck-ramp-box me-1"></i> تقديمات لوجستية</span>
                         <span class="badge bg-dark text-warning p-2"><i class="fa-solid fa-toolbox me-1"></i> خدمات مهنية تخصصية</span>
@@ -86,13 +98,14 @@
         </div>
     </section>
 
+    <!-- 5. خرائط العمل الجغرافي بالجنوب -->
     <section class="container my-5">
-        <h3 class="text-center fw-bold mb-4 section-title">خرائط العمل الجغرافي بالجنوب</h3>
+        <h3 class="text-center fw-bold mb-4 section-title luxury-gold-title-sm">خرائط العمل الجغرافي بالجنوب</h3>
         <div class="luxury-card p-4 text-center bg-dark text-white">
             <p class="mb-3 small">اختر قضاءك أو بلدتك على الخارطة لتحديد احتياجات الإعمار ومكان تواجد الفرق الميدانية</p>
             <div class="mock-map-container">
                 <div class="map-overlay-info">
-                    <i class="fa-solid fa-location-dot fa-2x text-warning mb-2 animate-bounce"></i>
+                    <i class="fa-solid fa-location-dot fa-2x text-warning mb-2 pulse-icon"></i>
                     <h6 class="fw-bold text-warning">خارطة التوزيع الميداني (محاكاة جغرافية)</h6>
                     <span class="badge bg-light text-dark mb-1">قضاء صور</span>
                     <span class="badge bg-light text-dark mb-1">قضاء بنت جبيل</span>
@@ -102,12 +115,13 @@
         </div>
     </section>
 
+    <!-- 6. رادارات وفرز المساهمات -->
     <section class="container my-5">
-        <h3 class="text-center fw-bold mb-4 section-title">رادارات وفرز المساهمات</h3>
+        <h3 class="text-center fw-bold mb-4 section-title luxury-gold-title-sm">رادارات وفرز المساهمات</h3>
         <div class="row g-4 text-center">
             <div class="col-md-4">
                 <div class="luxury-card p-3">
-                    <i class="fa-solid fa-users-gear fa-2x text-warning mb-2"></i>
+                    <i class="fa-solid fa-users-gear fa-2x text-warning mb-2 pulse-icon"></i>
                     <h6 class="fw-bold">طبيعة المتطوعين</h6>
                     <p class="text-muted small">توزيع حسب الاختيار: إعلامي، صحي، أنشطة ميدانية، أو دعم نفسي للاستجابة السريعة.</p>
                 </div>
@@ -129,6 +143,7 @@
         </div>
     </section>
 
+    <!-- 7. عدّاد الإنجاز -->
     <section class="container my-5">
         <div class="row g-3">
             <div class="col-6 col-md-3">
@@ -158,6 +173,7 @@
         </div>
     </section>
 
+    <!-- 8. تذييل الصفحة الفاخر -->
     <footer class="luxury-footer text-center py-4 mt-5">
         <p class="mb-1 small fw-bold text-gold">منصة الأعزاء © 2026 - مبادرة أهلية تطوعية تكافلية</p>
         <p class="text-muted small px-3" style="font-size: 0.8rem;">كل البيانات المرفوعة تخضع لسياسة خصوصية وأمان صارمة لحفظ كرامة وأمن أهالينا.</p>
