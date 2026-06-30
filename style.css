@@ -1,3 +1,6 @@
+/* ================================================================
+   BASE & RESET
+   ================================================================ */
 body {
     font-family: 'Cairo', sans-serif;
     background-color: #fbfbfa;
@@ -9,7 +12,9 @@ body {
     font-family: 'Amiri', serif;
 }
 
-/* --- 🌟 شريط النصوص الفاخر والمتحرك (Luxury News Ticker) --- */
+/* ================================================================
+   LUXURY TICKER (شريط النصوص المتحرك)
+   ================================================================ */
 .luxury-ticker-container {
     display: flex;
     background: #1a1915;
@@ -18,7 +23,8 @@ body {
     align-items: center;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
 }
 
 .ticker-title {
@@ -31,8 +37,9 @@ body {
     font-weight: 700;
     font-size: 0.9rem;
     z-index: 5;
-    box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.3);
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .ticker-wrap {
@@ -61,28 +68,74 @@ body {
     font-size: 0.95rem;
 }
 
-.Quran-text, .prophet-text, .imam-text {
+.Quran-text,
+.prophet-text,
+.imam-text {
     font-family: 'Amiri', serif;
     font-size: 1.15rem;
     color: #fff4cc;
 }
 
 @keyframes ticker-animation {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(100%, 0, 0); }
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(100%, 0, 0);
+    }
 }
 
-/* --- 🌟 تصميم لوغو "الأعزاء" الفاخر بالخط العربي --- */
+/* ================================================================
+   LANGUAGE TOGGLE BUTTON
+   ================================================================ */
+.lang-toggle-btn {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 999;
+    background: linear-gradient(135deg, #1a1915, #2b291f);
+    color: #ffda33;
+    border: 1px solid #ffda33;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.lang-toggle-btn:hover {
+    background: #ffda33;
+    color: #1a1915;
+    transform: scale(1.05);
+}
+
+[dir="ltr"] .lang-toggle-btn {
+    right: auto;
+    left: 20px;
+}
+
+/* ================================================================
+   LUXURY BRAND LOGO
+   ================================================================ */
 .luxury-brand-logo {
     font-family: 'Amiri', serif;
     font-size: 1.8rem !important;
     font-weight: 700 !important;
     background: linear-gradient(135deg, #ffd700, #b8860b);
+    
+    /* 1. الدعم القياسي الحديث لجميع المتصفحات دون أخطاء */
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    
     display: flex;
     align-items: center;
+    text-decoration: none;
+    
+    /* 2. تم استبدال text-shadow بـ filter لضمان عدم تداخل الظل مع التدرج اللوني المقطوع */
+    filter: drop-shadow(0px 2px 8px rgba(184, 134, 11, 0.3));
 }
 
 .header-spiritual-text {
@@ -92,7 +145,9 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* --- 🌟 تصميم إطار وشعار الآية القرآنية في الوسط تماماً --- */
+/* ================================================================
+   QURAN LOGO BADGE
+   ================================================================ */
 .quran-logo-badge {
     background: linear-gradient(135deg, rgba(26, 25, 18, 0.96), rgba(12, 11, 7, 0.98));
     border: 2px solid #ffda33;
@@ -120,13 +175,15 @@ body {
     font-weight: 700;
     line-height: 1.6;
     letter-spacing: 0.5px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
 }
 
-/* --- 🌟 تأثيرات الظلال الذهبية المشعة على العناوين (Gold Glow) --- */
+/* ================================================================
+   GOLD TITLES WITH GLOW
+   ================================================================ */
 .luxury-gold-title {
     color: #ffda33 !important;
-    text-shadow: 0 0 12px rgba(255, 218, 51, 0.6), 0 2px 4px rgba(0,0,0,0.8);
+    text-shadow: 0 0 12px rgba(255, 218, 51, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .luxury-gold-title-sm {
@@ -134,26 +191,77 @@ body {
     text-shadow: 0 0 8px rgba(204, 164, 0, 0.25);
 }
 
-/* --- 🌟 خلفية الأمل الفاخرة (شروق، أطفال، وسواعد الإعمار متجانسة) --- */
+/* ================================================================
+   HERO SECTION
+   ================================================================ */
 .luxury-hero {
-    background: linear-gradient(rgba(18, 16, 10, 0.8), rgba(8, 8, 4, 0.94)), 
-                url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80') no-repeat center center; /* شروق شمس وإعمار دافئ */
+    background: linear-gradient(rgba(18, 16, 10, 0.8), rgba(8, 8, 4, 0.94)),
+        url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
     background-size: cover;
     padding: 70px 20px;
     border-bottom: 4px solid #ffda33;
+    position: relative;
+    overflow: hidden;
 }
 
 .luxury-sub-title {
     color: #f1efea !important;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .sun-icon {
     color: #ffda33;
 }
 
-/* --- 🌟 تأثير حركة النبض المستمر للأيقونات (Pulse Animation) --- */
-.brand-icon, .pulse-icon, .small-pulse {
+/* Particles */
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-particles span {
+    position: absolute;
+    bottom: -20px;
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #ffda33;
+    opacity: 0.55;
+    box-shadow: 0 0 6px rgba(255, 218, 51, 0.7);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-340px) translateX(12px);
+        opacity: 0;
+    }
+}
+
+.luxury-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* ================================================================
+   PULSE ANIMATION FOR ICONS
+   ================================================================ */
+.brand-icon,
+.pulse-icon,
+.small-pulse {
     animation: luxuryPulse 2s infinite ease-in-out;
     display: inline-block;
 }
@@ -163,16 +271,23 @@ body {
 }
 
 @keyframes luxuryPulse {
-    0% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,218,51,0)); }
-    50% { transform: scale(1.08); filter: drop-shadow(0 0 6px rgba(255,218,51,0.6)); }
-    100% { transform: scale(1); filter: drop-shadow(0 0 0px rgba(255,218,51,0)); }
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0px rgba(255, 218, 51, 0));
+    }
+    50% {
+        transform: scale(1.08);
+        filter: drop-shadow(0 0 6px rgba(255, 218, 51, 0.6));
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0px rgba(255, 218, 51, 0));
+    }
 }
 
-/* --- تحسينات الواجهة العامة والبطاقات --- */
-.luxury-nav {
-    border-bottom: 1px solid rgba(204, 164, 0, 0.15);
-}
-
+/* ================================================================
+   BUTTONS
+   ================================================================ */
 .btn-cta {
     padding: 16px 30px;
     font-size: 1.1rem;
@@ -185,7 +300,9 @@ body {
     background: linear-gradient(135deg, #ffda33, #cca400);
     color: #1a1915;
     box-shadow: 0 4px 15px rgba(255, 218, 51, 0.25);
+    border: none;
 }
+
 .btn-gold-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 218, 51, 0.4);
@@ -198,6 +315,7 @@ body {
     color: #ffda33;
     border: 1px solid rgba(255, 218, 51, 0.4);
 }
+
 .btn-charcoal-secondary:hover {
     transform: translateY(-2px);
     background: #1a1915;
@@ -205,22 +323,31 @@ body {
     color: #ffda33;
 }
 
+/* ================================================================
+   LUXURY CARDS
+   ================================================================ */
 .luxury-card {
     border: none;
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(204, 164, 0, 0.05);
     border-top: 4px solid #ffda33;
     transition: all 0.3s ease;
+    border-radius: 12px;
 }
+
 .luxury-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(204, 164, 0, 0.12);
 }
 
+/* ================================================================
+   SECTION TITLE WITH UNDERLINE
+   ================================================================ */
 .section-title {
     position: relative;
     padding-bottom: 15px;
 }
+
 .section-title::after {
     content: '';
     position: absolute;
@@ -233,34 +360,18 @@ body {
     border-radius: 2px;
 }
 
+/* ================================================================
+   CUSTOM LIST
+   ================================================================ */
 .custom-list li {
     padding: 8px 0;
     border-bottom: 1px dashed rgba(255, 218, 51, 0.1);
     font-size: 0.95rem;
 }
 
-.mock-map-container {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
-                url('https://images.unsplash.com/photo-1524661135339-9140b00782ee?auto=format&fit=crop&w=800&q=80') no-repeat center center;
-    background-size: cover;
-    height: 220px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 218, 51, 0.2);
-    margin-top: 15px;
-}
-
-.map-overlay-info {
-    text-align: center;
-}
-
-.badge {
-    font-weight: 600;
-    font-size: 0.85rem;
-}
-
+/* ================================================================
+   COUNTER CARDS
+   ================================================================ */
 .counter-card {
     background: white;
     border: none;
@@ -270,21 +381,602 @@ body {
     padding: 20px;
     border-top: 3px solid #ffda33;
 }
+
 .counter-number {
     font-size: 2rem;
     font-weight: 700;
     color: #cca400;
 }
 
+/* ================================================================
+   DONATION BAR
+   ================================================================ */
+.donation-bar .progress {
+    background: #3a382e;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.donation-bar .progress-bar {
+    background: linear-gradient(90deg, #cca400, #ffda33) !important;
+    transition: width 0.5s ease;
+}
+
+/* ================================================================
+   STEP CARDS
+   ================================================================ */
+.step-card {
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid rgba(204, 164, 0, 0.15);
+    box-shadow: 0 8px 22px rgba(204, 164, 0, 0.06);
+    position: relative;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(204, 164, 0, 0.14);
+}
+
+.step-number {
+    position: absolute;
+    top: 10px;
+    inset-inline-start: 14px;
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: rgba(204, 164, 0, 0.25);
+}
+
+.step-icon {
+    font-size: 1.7rem;
+    color: #cca400;
+    margin-top: 10px;
+}
+
+/* ================================================================
+   GALLERY
+   ================================================================ */
+.gallery-item {
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 230px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 12px;
+    inset-inline-end: 12px;
+}
+
+/* ================================================================
+   TESTIMONIAL CARDS
+   ================================================================ */
+.testimonial-card {
+    max-width: 680px;
+    background: linear-gradient(135deg, rgba(26, 25, 18, 0.97), rgba(12, 11, 7, 0.98));
+    border: 1px solid rgba(255, 218, 51, 0.25);
+    border-radius: 18px;
+    padding: 40px 35px 30px;
+    text-align: center;
+    color: #f1efea;
+    position: relative;
+}
+
+.testimonial-card .quote-icon {
+    font-size: 1.6rem;
+    color: #ffda33;
+    opacity: 0.6;
+    margin-bottom: 10px;
+}
+
+#testimonialCarousel .carousel-control-prev,
+#testimonialCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1a1915;
+    border-radius: 50%;
+    opacity: 0.85;
+}
+
+#testimonialCarousel .carousel-control-prev {
+    inset-inline-start: -10px;
+}
+#testimonialCarousel .carousel-control-next {
+    inset-inline-end: -10px;
+}
+
+/* ================================================================
+   PARTNER BADGES
+   ================================================================ */
+.partner-badge {
+    background: #ffffff;
+    border: 1px solid rgba(204, 164, 0, 0.15);
+    border-radius: 12px;
+    padding: 18px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.partner-badge i {
+    font-size: 1.5rem;
+    color: #cca400;
+}
+
+.partner-badge span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #4a4736;
+}
+
+.partner-badge:hover {
+    transform: translateY(-3px);
+    border-color: #ffda33;
+    box-shadow: 0 8px 18px rgba(204, 164, 0, 0.1);
+}
+
+/* ================================================================
+   LIVE FEED
+   ================================================================ */
+.live-feed {
+    scroll-behavior: smooth;
+}
+
+.live-feed .feed-item {
+    transition: all 0.3s ease;
+}
+
+.live-feed .feed-item:first-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ================================================================
+   CHAT BOX (Floating)
+   ================================================================ */
+.chat-toggle-btn {
+    position: fixed;
+    bottom: 22px;
+    right: 20px;
+    z-index: 999;
+    background: linear-gradient(135deg, #ffda33, #cca400);
+    color: #1a1915;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 1.2rem;
+    box-shadow: 0 6px 25px rgba(255, 218, 51, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.chat-toggle-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 30px rgba(255, 218, 51, 0.5);
+}
+
+.chat-box {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 999;
+    width: 340px;
+    max-height: 420px;
+    background: #1a1915;
+    border-radius: 16px;
+    border: 1px solid #ffda33;
+    flex-direction: column;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+[dir="ltr"] .chat-toggle-btn {
+    right: auto;
+    left: 20px;
+}
+
+[dir="ltr"] .chat-box {
+    right: auto;
+    left: 20px;
+}
+
+.chat-header {
+    padding: 12px 16px;
+    background: #2b291f;
+    border-bottom: 1px solid rgba(255, 218, 51, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.chat-header .btn-close {
+    filter: invert(1);
+    opacity: 0.6;
+}
+
+.chat-messages {
+    padding: 12px 16px;
+    height: 220px;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.chat-messages p {
+    margin-bottom: 4px;
+}
+
+.chat-input-group {
+    padding: 10px 12px;
+    border-top: 1px solid rgba(255, 218, 51, 0.15);
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.chat-input-group input {
+    background: #2b291f;
+    border: 1px solid rgba(255, 218, 51, 0.2);
+    color: #f1efea;
+    border-radius: 8px;
+    flex-grow: 1;
+}
+
+.chat-input-group input::placeholder {
+    color: rgba(241, 239, 234, 0.5);
+}
+
+.chat-input-group input:focus {
+    background: #2b291f;
+    color: #f1efea;
+    border-color: #ffda33;
+    box-shadow: 0 0 0 0.2rem rgba(255, 218, 51, 0.15);
+}
+
+/* ================================================================
+   BACK TO TOP BUTTON
+   ================================================================ */
+.back-to-top {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    z-index: 999;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #ffda33, #cca400);
+    color: #1a1915;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+}
+
+[dir="ltr"] .back-to-top {
+    left: auto;
+    right: 20px;
+}
+
+/* ================================================================
+   REVEAL ON SCROLL
+   ================================================================ */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
 .luxury-footer {
     background: #1a1915;
     border-top: 3px solid #ffda33;
 }
+
 .text-gold {
     color: #ffda33 !important;
 }
 
-/* تهيئة شاشات الموبايل المتجاوبة */
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 218, 51, 0.35);
+    color: #ffda33;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    background: #ffda33;
+    color: #1a1915;
+    transform: translateY(-3px);
+}
+
+.newsletter-form {
+    max-width: 420px;
+}
+
+.newsletter-input {
+    background: #2b291f;
+    border: 1px solid rgba(255, 218, 51, 0.3);
+    color: #f1efea;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(241, 239, 234, 0.5);
+}
+
+.newsletter-input:focus {
+    background: #2b291f;
+    color: #f1efea;
+    border-color: #ffda33;
+    box-shadow: 0 0 0 0.2rem rgba(255, 218, 51, 0.15);
+}
+
+/* ================================================================
+   PAGE HERO (Internal Pages)
+   ================================================================ */
+.page-hero {
+    background: linear-gradient(135deg, rgba(26, 25, 18, 0.97), rgba(12, 11, 7, 0.98));
+    border-bottom: 3px solid #ffda33;
+    padding: 14px 0 30px;
+}
+
+.page-hero .top-row {
+    padding: 10px 0 18px;
+}
+
+.page-hero .back-btn {
+    border-color: rgba(255, 218, 51, 0.5);
+    color: #ffda33;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.page-hero .back-btn:hover {
+    background: #ffda33;
+    color: #1a1915;
+}
+
+.page-hero .small-logo {
+    font-size: 1.3rem !important;
+}
+
+.page-hero-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ffda33;
+    text-shadow: 0 0 12px rgba(255, 218, 51, 0.35);
+    margin-bottom: 8px;
+}
+
+.page-hero-sub {
+    color: #d8d5c8;
+    font-size: 0.95rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================================================================
+   SITE FOOTER MINI (Internal Pages)
+   ================================================================ */
+.site-footer-mini {
+    background: #1a1915;
+    border-top: 3px solid #ffda33;
+    color: #cfcabb;
+    text-align: center;
+    padding: 18px 12px;
+    font-size: 0.82rem;
+}
+
+.site-footer-mini .text-gold {
+    color: #ffda33 !important;
+}
+
+/* ================================================================
+   FORMS
+   ================================================================ */
+.form-control:focus,
+.form-select:focus {
+    border-color: #ffda33;
+    box-shadow: 0 0 0 0.2rem rgba(255, 218, 51, 0.2);
+}
+
+.form-check-input:checked {
+    background-color: #cca400;
+    border-color: #cca400;
+}
+
+.form-section-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #cca400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+/* ================================================================
+   CATEGORY CARDS (Activities)
+   ================================================================ */
+.category-card {
+    background: #fff;
+    border-radius: 14px;
+    border-top: 3px solid #ffda33;
+    box-shadow: 0 6px 18px rgba(204, 164, 0, 0.07);
+    padding: 22px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 26px rgba(204, 164, 0, 0.15);
+}
+
+.category-card i {
+    color: #cca400;
+}
+
+/* ================================================================
+   EVENT CARDS
+   ================================================================ */
+.event-card {
+    border-radius: 14px;
+    border: 1px solid rgba(204, 164, 0, 0.12);
+    box-shadow: 0 6px 18px rgba(204, 164, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(204, 164, 0, 0.12);
+}
+
+.event-date-badge {
+    background: linear-gradient(135deg, #ffda33, #cca400);
+    color: #1a1915;
+    border-radius: 10px;
+    min-width: 64px;
+    line-height: 1.1;
+}
+
+/* ================================================================
+   BULLETIN CARDS
+   ================================================================ */
+.bulletin-card {
+    border-right: 4px solid #ffda33;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+[dir="rtl"] .bulletin-card {
+    border-right: none;
+    border-left: 4px solid #ffda33;
+}
+
+.bulletin-card:hover {
+    transform: translateX(-2px);
+    box-shadow: 0 12px 26px rgba(204, 164, 0, 0.1);
+}
+
+.bulletin-card.urgent {
+    border-left-color: #e3502f;
+}
+
+/* ================================================================
+   REGION ROWS (Maps)
+   ================================================================ */
+.region-row {
+    border: 1px solid rgba(255, 218, 51, 0.18);
+    border-radius: 12px;
+    transition: all 0.25s ease;
+}
+
+.region-row:hover {
+    background: rgba(255, 218, 51, 0.08) !important;
+    border-color: #ffda33;
+    transform: translateX(-3px);
+}
+
+.region-row .badge.urgent-badge {
+    animation: luxuryPulse 2s infinite ease-in-out;
+}
+
+/* ================================================================
+   FILTER CHIPS
+   ================================================================ */
+.filter-chip {
+    border: 1px solid rgba(204, 164, 0, 0.35);
+    color: #4a4736;
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    background: #fff;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.filter-chip.active,
+.filter-chip:hover {
+    background: linear-gradient(135deg, #ffda33, #cca400);
+    color: #1a1915;
+    border-color: transparent;
+}
+
+/* ================================================================
+   MAP CUSTOM LABEL
+   ================================================================ */
+.custom-label {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
 @media (max-width: 768px) {
     .ticker-item {
         padding: 0 1.5rem;
@@ -301,261 +993,48 @@ body {
     .luxury-gold-title {
         font-size: 1.6rem !important;
     }
-}
-
-/* =========================================================
-   🌟 إضافات التطوير الشامل: حركة، أقسام جديدة، تجاوب أدق
-   ========================================================= */
-
-/* --- جسيمات ذهبية عائمة في قسم الترحيب --- */
-.luxury-hero {
-    position: relative;
-    overflow: hidden;
-}
-.hero-particles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-.hero-particles span {
-    position: absolute;
-    bottom: -20px;
-    display: block;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #ffda33;
-    opacity: 0.55;
-    box-shadow: 0 0 6px rgba(255, 218, 51, 0.7);
-    animation: floatUp linear infinite;
-}
-@keyframes floatUp {
-    0% { transform: translateY(0) translateX(0); opacity: 0; }
-    10% { opacity: 0.6; }
-    90% { opacity: 0.4; }
-    100% { transform: translateY(-340px) translateX(12px); opacity: 0; }
-}
-.luxury-hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* --- كشف العناصر تدريجياً عند التمرير --- */
-.reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal-on-scroll.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- زر العودة إلى الأعلى --- */
-.back-to-top {
-    position: fixed;
-    bottom: 22px;
-    left: 22px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, #ffda33, #cca400);
-    color: #1a1915;
-    font-size: 1.1rem;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
-    z-index: 999;
-    cursor: pointer;
-}
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-.back-to-top:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 22px rgba(0,0,0,0.3);
-}
-
-/* --- بطاقات خطوات آلية العمل --- */
-.step-card {
-    background: #ffffff;
-    border-radius: 14px;
-    border: 1px solid rgba(204, 164, 0, 0.15);
-    box-shadow: 0 8px 22px rgba(204, 164, 0, 0.06);
-    position: relative;
-    height: 100%;
-    transition: all 0.3s ease;
-}
-.step-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 28px rgba(204, 164, 0, 0.14);
-}
-.step-number {
-    position: absolute;
-    top: 10px;
-    inset-inline-start: 14px;
-    font-family: 'Amiri', serif;
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: rgba(204, 164, 0, 0.25);
-}
-.step-icon {
-    font-size: 1.7rem;
-    color: #cca400;
-    margin-top: 10px;
-}
-
-/* --- معرض الإنجازات --- */
-.gallery-item {
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    height: 230px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
-.gallery-overlay {
-    position: absolute;
-    bottom: 12px;
-    inset-inline-end: 12px;
-}
-
-/* --- بطاقة قصص النجاح --- */
-.testimonial-card {
-    max-width: 680px;
-    background: linear-gradient(135deg, rgba(26, 25, 18, 0.97), rgba(12, 11, 7, 0.98));
-    border: 1px solid rgba(255, 218, 51, 0.25);
-    border-radius: 18px;
-    padding: 40px 35px 30px;
-    text-align: center;
-    color: #f1efea;
-    position: relative;
-}
-.testimonial-card .quote-icon {
-    font-size: 1.6rem;
-    color: #ffda33;
-    opacity: 0.6;
-    margin-bottom: 10px;
-}
-#testimonialCarousel .carousel-control-prev,
-#testimonialCarousel .carousel-control-next {
-    width: 40px;
-    height: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #1a1915;
-    border-radius: 50%;
-    opacity: 0.85;
-}
-#testimonialCarousel .carousel-control-prev { inset-inline-start: -10px; }
-#testimonialCarousel .carousel-control-next { inset-inline-end: -10px; }
-
-/* --- شارات الشركاء --- */
-.partner-badge {
-    background: #ffffff;
-    border: 1px solid rgba(204, 164, 0, 0.15);
-    border-radius: 12px;
-    padding: 18px 10px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-}
-.partner-badge i {
-    font-size: 1.5rem;
-    color: #cca400;
-}
-.partner-badge span {
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #4a4736;
-}
-.partner-badge:hover {
-    transform: translateY(-3px);
-    border-color: #ffda33;
-    box-shadow: 0 8px 18px rgba(204, 164, 0, 0.1);
-}
-
-/* --- فوتر: تواصل اجتماعي ونشرة بريدية --- */
-.social-row {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-}
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 218, 51, 0.35);
-    color: #ffda33;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-.social-icon:hover {
-    background: #ffda33;
-    color: #1a1915;
-    transform: translateY(-3px);
-}
-.newsletter-form {
-    max-width: 420px;
-}
-.newsletter-input {
-    background: #2b291f;
-    border: 1px solid rgba(255, 218, 51, 0.3);
-    color: #f1efea;
-}
-.newsletter-input::placeholder {
-    color: rgba(241, 239, 234, 0.5);
-}
-.newsletter-input:focus {
-    background: #2b291f;
-    color: #f1efea;
-    border-color: #ffda33;
-    box-shadow: 0 0 0 0.2rem rgba(255, 218, 51, 0.15);
-}
-
-/* --- تحسين التركيز للوحة المفاتيح (إتاحة) --- */
-a:focus-visible, button:focus-visible, input:focus-visible {
-    outline: 2px solid #cca400;
-    outline-offset: 2px;
-}
-
-/* --- احترام تفضيل تقليل الحركة --- */
-@media (prefers-reduced-motion: reduce) {
-    .ticker-move,
-    .brand-icon, .pulse-icon, .small-pulse,
-    .hero-particles span {
-        animation: none !important;
+    .chat-box {
+        width: 290px;
+        right: 10px;
+        bottom: 80px;
     }
-    .reveal-on-scroll {
-        opacity: 1;
-        transform: none;
-        transition: none;
+    [dir="ltr"] .chat-box {
+        right: auto;
+        left: 10px;
+    }
+    .chat-toggle-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+        bottom: 16px;
+        right: 10px;
+    }
+    [dir="ltr"] .chat-toggle-btn {
+        right: auto;
+        left: 10px;
+    }
+    .back-to-top {
+        bottom: 80px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    [dir="ltr"] .back-to-top {
+        left: auto;
+        right: 10px;
+    }
+    .lang-toggle-btn {
+        bottom: 70px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+    [dir="ltr"] .lang-toggle-btn {
+        right: auto;
+        left: 10px;
     }
 }
 
-/* --- تجاوب إضافي للموبايل --- */
 @media (max-width: 576px) {
     .testimonial-card {
         padding: 28px 20px 22px;
@@ -566,177 +1045,36 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     .gallery-item {
         height: 190px;
     }
-    .back-to-top {
-        bottom: 16px;
-        left: 16px;
-        width: 42px;
-        height: 42px;
+    .page-hero-title {
+        font-size: 1.3rem;
+    }
+    .donation-bar .row {
+        text-align: center !important;
+    }
+    .donation-bar .col-md-4,
+    .donation-bar .col-md-5,
+    .donation-bar .col-md-3 {
+        text-align: center !important;
     }
 }
 
-/* =========================================================
-   🌟 نظام موحّد للصفحات الداخلية (تطوع، أنشطة، تعاميم، دعم، خرائط)
-   ========================================================= */
-
-/* --- ترويسة الصفحات الداخلية --- */
-.page-hero {
-    background: linear-gradient(135deg, rgba(26, 25, 18, 0.97), rgba(12, 11, 7, 0.98));
-    border-bottom: 3px solid #ffda33;
-    padding: 14px 0 30px;
-}
-.page-hero .top-row {
-    padding: 10px 0 18px;
-}
-.page-hero .back-btn {
-    border-color: rgba(255, 218, 51, 0.5);
-    color: #ffda33;
-    font-weight: 700;
-    border-radius: 10px;
-}
-.page-hero .back-btn:hover {
-    background: #ffda33;
-    color: #1a1915;
-}
-.page-hero .small-logo {
-    font-size: 1.3rem !important;
-}
-.page-hero-title {
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: #ffda33;
-    text-shadow: 0 0 12px rgba(255, 218, 51, 0.35);
-    margin-bottom: 8px;
-}
-.page-hero-sub {
-    color: #d8d5c8;
-    font-size: 0.95rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* --- فوتر مصغّر للصفحات الداخلية --- */
-.site-footer-mini {
-    background: #1a1915;
-    border-top: 3px solid #ffda33;
-    color: #cfcabb;
-    text-align: center;
-    padding: 18px 12px;
-    font-size: 0.82rem;
-}
-.site-footer-mini .text-gold {
-    color: #ffda33 !important;
-}
-
-/* --- تحسين عناصر الاستمارات داخل luxury-card --- */
-.form-control:focus,
-.form-select:focus {
-    border-color: #ffda33;
-    box-shadow: 0 0 0 0.2rem rgba(255, 218, 51, 0.2);
-}
-.form-check-input:checked {
-    background-color: #cca400;
-    border-color: #cca400;
-}
-.form-section-label {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #cca400;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-}
-
-/* --- بطاقات فئات الأنشطة (قابلة للنقر) --- */
-.category-card {
-    background: #fff;
-    border-radius: 14px;
-    border-top: 3px solid #ffda33;
-    box-shadow: 0 6px 18px rgba(204, 164, 0, 0.07);
-    padding: 22px 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-.category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 26px rgba(204, 164, 0, 0.15);
-}
-.category-card.active {
-    border-top-color: #cca400;
-    background: #fffdf3;
-}
-.category-card i {
-    color: #cca400;
-}
-
-/* --- بطاقات الدعوات والفعاليات --- */
-.event-card {
-    border-radius: 14px;
-    border: 1px solid rgba(204, 164, 0, 0.12);
-    box-shadow: 0 6px 18px rgba(204, 164, 0, 0.06);
-    transition: all 0.3s ease;
-}
-.event-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(204, 164, 0, 0.12);
-}
-.event-date-badge {
-    background: linear-gradient(135deg, #ffda33, #cca400);
-    color: #1a1915;
-    border-radius: 10px;
-    min-width: 64px;
-    line-height: 1.1;
-}
-
-/* --- بطاقات التعاميم --- */
-.bulletin-card {
-    border-right: 4px solid #ffda33;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-[dir="rtl"] .bulletin-card {
-    border-right: none;
-    border-left: 4px solid #ffda33;
-}
-.bulletin-card:hover {
-    transform: translateX(-2px);
-    box-shadow: 0 12px 26px rgba(204, 164, 0, 0.1);
-}
-.bulletin-card.urgent {
-    border-left-color: #e3502f;
-}
-
-/* --- بطاقات الأقضية في صفحة الخرائط --- */
-.region-row {
-    border: 1px solid rgba(255, 218, 51, 0.18);
-    border-radius: 12px;
-    transition: all 0.25s ease;
-}
-.region-row:hover {
-    background: rgba(255, 218, 51, 0.08) !important;
-    border-color: #ffda33;
-    transform: translateX(-3px);
-}
-.region-row .badge.urgent-badge {
-    animation: luxuryPulse 2s infinite ease-in-out;
-}
-
-/* --- شريط فلترة بسيط (chips) --- */
-.filter-chip {
-    border: 1px solid rgba(204, 164, 0, 0.35);
-    color: #4a4736;
-    border-radius: 30px;
-    padding: 6px 16px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    background: #fff;
-    transition: all 0.25s ease;
-    cursor: pointer;
-}
-.filter-chip.active,
-.filter-chip:hover {
-    background: linear-gradient(135deg, #ffda33, #cca400);
-    color: #1a1915;
-    border-color: transparent;
+/* ================================================================
+   REDUCED MOTION PREFERENCE
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .ticker-move,
+    .brand-icon,
+    .pulse-icon,
+    .small-pulse,
+    .hero-particles span {
+        animation: none !important;
+    }
+    .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .counter-number {
+        transition: none !important;
+    }
 }
