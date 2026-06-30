@@ -1,0 +1,62 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+.navbar-brand {
+    font-weight: 700;
+    color: #0d6efd !important;
+}
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=800&q=80') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.btn-cta {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.counter-card {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    padding: 20px;
+}
+.counter-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #198754;
+}
+.step-card {
+    border: none;
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    height: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+.step-icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+/* التجاوب مع الموبايل */
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    .btn-cta {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
