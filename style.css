@@ -227,3 +227,33 @@ body {
         font-size: 1.15rem;
     }
 }
+/* --- التحديثات الفاخرة الجديدة المضافة --- */
+
+.custom-list li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 218, 51, 0.1);
+    font-size: 0.95rem;
+}
+
+/* محاكاة حاوية الخرائط التفاعلية للموبايل */
+.mock-map-container {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1524661135339-9140b00782ee?auto=format&fit=crop&w=800&q=80') no-repeat center center;
+    background-size: cover;
+    height: 220px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 218, 51, 0.2);
+    margin-top: 15px;
+}
+
+.map-overlay-info {
+    text-align: center;
+}
+
+.badge {
+    font-weight: 600;
+    font-size: 0.85rem;
+}
