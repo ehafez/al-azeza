@@ -1,0 +1,12 @@
+الخطوة 1: تهيئة المشروع:
+npm init -y
+
+لخطوة 2: تثبيت المكتبات المطلوبة للمنصة
+npm install express mysql2 multer cors
+
+
+npm install nodemailer
+
+
+admin@azeza.org
+123

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | منصة أعزاء للاستجابة المجتمعية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo">
+                <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+            </div>
+             <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="camps.html">مخيمات الاستجابة</a> 
+                <a href="operations.html">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+                <a href="volunteer.html">تطوّع</a>
+                <a href="news.html">الأخبار</a>
+                <a href="contact.html" class="active">تواصل معنا</a>
+                <a href="about.html"> عن أعزاء</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://wa.me/96171123456" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp style-icon"></i> تواصل عبر واتساب</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="contact-hero" style="background-image: linear-gradient(to bottom, rgba(14,71,54,0.88), rgba(14,71,54,0.95)), url('/picture/1.jpg');">
+        <div class="container hero-inside">
+            <h1>تواصل معنا</h1>
+            <p>نحن هنا للاستماع إليكم. يسعدنا استقبال استفساراتكم، مقترحاتكم، أو طلبات التنسيق الميداني لخدمة أهلنا في كافة المناطق المتضررة.</p>
+        </div>
+    </section>
+
+    <section class="contact-cards-section container">
+        <div class="contact-cards-grid">
+            <div class="contact-mini-card">
+                <div class="c-icon"><i class="fas fa-headset text-green"></i></div>
+                <h4>الأرقام الساخنة</h4>
+                <p>للتواصل المباشر والاستجابة السريعة:</p>
+                <a href="tel:+96171123456" class="card-link" dir="ltr">+961 71 123 456</a>
+            </div>
+            <div class="contact-mini-card">
+                <div class="c-icon"><i class="fas fa-envelope-open-text text-green"></i></div>
+                <h4>البريد الإلكتروني</h4>
+                <p>للمراسلات الرسمية والشراكات التنموية:</p>
+                <a href="mailto:info@ezzai.org" class="card-link">info@ezzai.org</a>
+            </div>
+            <div class="contact-mini-card">
+                <div class="c-icon"><i class="fas fa-map-marked-alt text-green"></i></div>
+                <h4>المقر الرئيسي</h4>
+                <p>المركز اللوجستي وإدارة الغرف الميدانية:</p>
+                <span class="card-text-location">لبنان - قضاء بنت جبيل</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="contact-main-layout container">
+        <div class="contact-grid-wrapper">
+            
+            <div class="contact-form-block">
+                <h3><i class="fas fa-edit"></i> أرسل رسالة مباشرة لفريق العمليات</h3>
+                <p class="form-sub-desc">قم بملء النموذج أدناه وسيتم توجيه رسالتك للقسم المختص لمتابعتها فوراً.</p>
+                
+                <form id="contactSendMessageForm">
+                    <div class="form-row-twin">
+                        <div class="form-group-block">
+                            <label for="cFullName">الاسم الكامل *</label>
+                            <input type="text" id="cFullName" placeholder="اكتب اسمك الثلاثي الكريم" required>
+                        </div>
+                        <div class="form-group-block">
+                            <label for="cPhone">رقم الهاتف الجوال *</label>
+                            <input type="tel" id="cPhone" placeholder="مثال: +96171123456" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-twin" style="margin-top: 15px;">
+                        <div class="form-group-block">
+                            <label for="cEmail">البريد الإلكتروني (اختياري)</label>
+                            <input type="email" id="cEmail" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group-block">
+                            <label for="cMsgType">نوع المراسلة *</label>
+                            <select id="cMsgType" required style="font-family:'Cairo'; font-weight:600;">
+                                <option value="general" selected>🕊️ استفسار أو سؤال عام</option>
+                                <option value="coordination">🤝 طلب تنسيق لوجستي أو ميداني</option>
+                                <option value="suggestion">💡 فكرة أو مقترح تطويري</option>
+                                <option value="complaint">⚠️ تقديم شكوى أو بلاغ عن خلل</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group-block" style="margin-top: 15px;">
+                        <label for="cSubject">موضوع الرسالة *</label>
+                        <input type="text" id="cSubject" placeholder="اكتب عنواناً مختصراً لرسالتك..." required>
+                    </div>
+
+                    <div class="form-group-block" style="margin-top: 15px;">
+                        <label for="cMessage">نص الرسالة أو الشكوى بالتفصيل *</label>
+                        <textarea id="cMessage" rows="6" placeholder="اكتب كل التفاصيل والمعلومات التي تود مشاركتها معنا هنا..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-message" id="btnSubmitContact">إرسال الرسالة إلى إدارة المبادرة الآن <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+
+            <div class="contact-info-text-block">
+                <div class="sidebar-info-box">
+                    <h4><i class="fas fa-clock"></i> أوقات الاستجابة والمتابعة</h4>
+                    <p>يعمل فريق رصد الرسائل والعلاقات العامة على مراجعة الوارد وفرزه على مدار الساعة.</p>
+                    <p>يتم إعطاء الأولوية القصوى لـ <strong>"طلبات التنسيق الميداني"</strong> و <strong>"البلاغات العاجلة"</strong> لدعم وإسناد أهلنا في القرى والبلدات بشكل فوري.</p>
+                </div>
+
+                <div class="sidebar-info-box security-alert-notice">
+                    <h4><i class="fas fa-shield-alt"></i> سرية البيانات وحماية الكرامة</h4>
+                    <p>تلتزم مبادرة أعزاء التزاماً صارماً بعدم مشاركة بيانات الاتصال أو الأسماء أو نصوص الشكاوى مع أي جهات خارجية خارج نطاق مجلس إدارة الاستجابة المختص.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                  <div class="logo">
+                <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+            </div>
+                <p>مبادرة مجتمعية إnsانية مستقلة، نعمل مع المتطوعين والشركاء للاستجابة للاحتياجات وبناء الإنسان نحو مستقبل أفضل بالكامل.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">عن المبادرة</a>
+                <a href="operations.html">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+            </div>
+            <div class="footer-contact">
+                <h4>تواصل معنا</h4>
+                <p><i class="fas fa-phone-alt style-icon-footer"></i> +961 71 123 456</p>
+                <p><i class="fas fa-envelope style-icon-footer"></i> info@ezzai.org</p>
+                <p><i class="fas fa-map-marker-alt style-icon-footer"></i> لبنان - قضاء بنت جبيل</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة لمبادرة أعزاء للاستجابة المجتمعية 2026 &copy;</p>
+        </div>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html>

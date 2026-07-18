@@ -1,0 +1,86 @@
+:root {
+    --primary-color: #0E4736;   
+    --secondary-color: #C19A4B; 
+    --text-dark: #333333;
+    --text-light: #666666;
+    --bg-light: #F4F7F6;
+    --white: #FFFFFF;
+    --font-family: 'Cairo', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family); direction: rtl; text-align: right; background-color: var(--bg-light); color: var(--text-dark); }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+/* الهيدر الموحد */
+.main-header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; width: 100%;}
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+.logo img { height: 55px; object-fit: contain; }
+.nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; margin: 0 12px; font-size: 0.95rem; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 4px; }
+.btn-whatsapp { background-color: #128C7E; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; }
+
+/* البانر الرئيسي */
+.camps-hero { width: 100%; padding: 60px 0; color: #fff; background-size: cover; background-position: center; }
+.hero-inside h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; }
+.hero-inside p { font-size: 1.05rem; max-width: 750px; opacity: 0.95; line-height: 1.6; }
+.breadcrumb { font-size: 0.85rem; color: var(--secondary-color); font-weight: 600; margin-bottom: 5px; display: block; }
+
+/* شريط الفلاتر والتصفية */
+.filter-section { padding: 35px 0 10px 0; }
+.filter-wrapper { background: #fff; padding: 15px; border-radius: 6px; display: flex; gap: 15px; border: 1px solid #eef2f0; box-shadow: 0 2px 8px rgba(0,0,0,0.01); margin-bottom: 20px; }
+.search-box { flex: 2; }
+.search-box input { width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; font-family: var(--font-family); outline: none; }
+.select-box { flex: 1; }
+.select-box select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-family); font-size: 0.9rem; background: #fff; outline: none; }
+.btn-reset { padding: 0 20px; background: #f1f2f6; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.9rem; font-family: var(--font-family); transition: background 0.2s; }
+.btn-reset:hover { background: #e4e7eb; }
+.grid-header-meta { margin-bottom: 15px; font-weight: 700; color: var(--primary-color); font-size: 1.1rem; }
+
+/* شبكة كروت المخيمات التفاعلية */
+.camps-dynamic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; padding-bottom: 50px; }
+.camp-main-card { background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #eef2f0; box-shadow: 0 4px 15px rgba(0,0,0,0.01); display: flex; flex-direction: column; transition: transform 0.3s; }
+.camp-main-card:hover { transform: translateY(-4px); }
+.camp-card-img { height: 180px; background-size: cover; background-position: center; position: relative; }
+.camp-type-badge { position: absolute; top: 12px; right: 12px; padding: 4px 12px; border-radius: 4px; color: #fff; font-size: 0.75rem; font-weight: 700; }
+.type-day { background-color: #3498DB; }
+.type-residential { background-color: var(--secondary-color); }
+
+.camp-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.camp-card-body h4 { font-size: 1.2rem; color: var(--primary-color); font-weight: 700; line-height: 1.5; margin-bottom: 10px; }
+.camp-meta-info { font-size: 0.88rem; color: var(--text-light); margin-bottom: 8px; font-weight: 600; }
+.camp-meta-info span { color: var(--text-dark); }
+
+.btn-register-trigger { background: var(--primary-color); color: #fff; border: none; padding: 10px; border-radius: 4px; font-family: var(--font-family); font-weight: 700; font-size: 0.9rem; cursor: pointer; text-align: center; margin-top: auto; width: 100%; transition: background 0.2s; }
+.btn-register-trigger:hover { background: #0a3325; }
+
+/* النافذة المنبثقة للطلب */
+.camp-modal { position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; }
+.modal-content { background-color: #fff; padding: 30px; border-radius: 8px; width: 90%; max-width: 500px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); position: relative; }
+.close-modal { position: absolute; left: 20px; top: 15px; font-size: 28px; font-weight: bold; color: #aaa; cursor: pointer; }
+.close-modal:hover { color: #ff4d4f; }
+.modal-content h3 { color: var(--primary-color); font-weight: 700; margin-bottom: 5px; border-bottom: 2px solid #f5f5f5; padding-bottom: 10px; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.88rem; }
+.form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-family); outline: none; }
+.btn-submit-reg { width: 100%; background: var(--secondary-color); color: #fff; border: none; padding: 12px; border-radius: 4px; font-family: var(--font-family); font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 10px; }
+.btn-submit-reg:hover { background: #a68137; }
+
+/* الفوتر */
+.main-footer { background: #093024 !important; color: #fff; padding: 50px 0 20px 0; margin-top: auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.footer-about p { font-size: 0.95rem; color: #ddd; line-height: 1.7; }
+.footer-grid h4 { color: var(--secondary-color); margin-bottom: 25px; font-size: 1.2rem; font-weight: 700; }
+.footer-grid a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; margin-bottom: 14px; font-size: 0.95rem; }
+.footer-grid a:hover { color: var(--secondary-color); }
+.footer-contact p { font-size: 0.95rem; color: #eee; margin-bottom: 12px; }
+.footer-bottom { text-align: center; padding-top: 25px; font-size: 0.9rem; color: #ccc; }
+
+@media (max-width: 992px) {
+    .camps-dynamic-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 650px) {
+    .filter-wrapper { flex-direction: column; }
+    .camps-dynamic-grid { grid-template-columns: 1fr; }
+}

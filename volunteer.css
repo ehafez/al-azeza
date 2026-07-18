@@ -1,0 +1,148 @@
+/* ==========================================================================
+   ملف volunteer.css المحدث بالكامل لدعم الهاتف والأجهزة اللوحية
+   ========================================================================== */
+
+:root {
+    --primary-color: #0E4736;   
+    --secondary-color: #C19A4B; 
+    --text-dark: #333333;
+    --text-light: #666666;
+    --bg-light: #F4F7F6;
+    --white: #FFFFFF;
+    --font-family: 'Cairo', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family); direction: rtl; text-align: right; background-color: var(--bg-light); color: var(--text-dark); }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+/* الهيدر الموحد */
+.main-header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; width: 100%;}
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+.logo img { height: 55px; object-fit: contain; }
+.nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; margin: 0 12px; font-size: 0.95rem; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 4px; }
+.btn-whatsapp { background-color: #128C7E; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; }
+
+/* البانر التعريفي الـ Hero */
+.volunteer-hero { width: 100%; padding: 90px 0; background-size: cover; background-position: center; display: flex; align-items: center; }
+.hero-inside h1 { font-size: 2.8rem; color: var(--primary-color); font-weight: 700; margin-bottom: 15px; line-height: 1.4; }
+.hero-inside p { font-size: 1.15rem; color: var(--text-dark); max-width: 650px; margin-bottom: 30px; line-height: 1.7; }
+.hero-action-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+.btn-hero { padding: 12px 25px; border-radius: 4px; font-weight: 700; font-family: var(--font-family); cursor: pointer; border: none; font-size: 0.95rem; }
+.btn-hero.action-green { background: var(--primary-color); color: #fff; }
+.btn-hero.action-gold { background: var(--secondary-color); color: #fff; text-decoration: none; display: inline-flex; align-items: center; }
+.btn-hero.action-white { background: #fff; color: var(--text-dark); border: 1px solid #ddd; }
+
+/* شريط مميزات الجودة */
+.why-volunteer-bar { background: #fff; padding: 30px; border-radius: 8px; margin-top: -35px; position: relative; z-index: 10; box-shadow: 0 4px 25px rgba(0,0,0,0.04); border: 1px solid #eef2f0; }
+.why-volunteer-bar .bar-title { text-align: center; color: var(--primary-color); font-size: 1.25rem; margin-bottom: 25px; font-weight: 700; }
+.features-inside-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+.feature-item-box h4 { color: var(--primary-color); font-size: 1.05rem; font-weight: 700; margin: 8px 0 4px 0; }
+.feature-item-box p { font-size: 0.85rem; color: var(--text-light); }
+
+/* شبكة مجالات التطوع */
+.fields-section { padding: 50px 0 20px 0; }
+.section-main-title { color: var(--primary-color); font-size: 1.6rem; font-weight: 700; margin-bottom: 25px; }
+.fields-grid-layout { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.field-mini-card { background: #fff; padding: 25px; border-radius: 8px; border: 1px solid #eef2f0; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.01); transition: all 0.3s; }
+.field-mini-card h4 { color: var(--primary-color); font-size: 1.1rem; margin: 12px 0 6px 0; font-weight: 700; }
+.field-mini-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; }
+.field-mini-card:hover { transform: translateY(-3px); border-color: var(--secondary-color); }
+
+/* شريط التدفق التوضيحي */
+.how-it-works-flow { padding: 30px 0; }
+.flow-wrapper-box { background: #fff; padding: 30px; border-radius: 8px; border: 1px solid #eef2f0; display: flex; gap: 30px; align-items: center; }
+.flow-text-side { flex: 2; }
+.flow-steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; text-align: center; }
+.flow-step .f-num { width: 35px; height: 35px; background: var(--bg-light); color: var(--primary-color); border: 2px solid var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; font-weight: 700; font-size: 1rem; }
+.flow-step h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.flow-step p { font-size: 0.8rem; color: var(--text-light); }
+.flow-notice-side { flex: 1; background: #e6f7ff; border: 1px solid #91d5ff; padding: 20px; border-radius: 6px; font-size: 0.88rem; color: #0050b3; line-height: 1.6; }
+
+/* معالج الاستمارة متعدد الخطوات */
+.volunteer-wizard-section { padding: 40px 0; }
+.wizard-container-card { background: #fff; border-radius: 8px; border: 1px solid #eef2f0; padding: 40px; max-width: 850px; margin: 0 auto; box-shadow: 0 4px 25px rgba(0,0,0,0.02); }
+.wizard-steps-timeline { display: flex; justify-content: space-between; border-bottom: 2px solid #f1f2f6; padding-bottom: 15px; margin-bottom: 35px; }
+.w-step { font-size: 0.9rem; color: var(--text-light); font-weight: 600; padding-bottom: 10px; }
+.w-step.active { color: var(--primary-color); font-weight: 700; border-bottom: 2px solid var(--primary-color); padding-bottom: 15px; margin-bottom: -17px; }
+.wizard-panel-inside { display: none; }
+.wizard-panel-inside.active { display: block; }
+
+.form-grid-twin { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-control-block { display: flex; flex-direction: column; gap: 8px; }
+.form-control-block label { font-weight: 600; font-size: 0.9rem; color: var(--text-dark); }
+.form-control-block input, .form-control-block select { padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-family: var(--font-family); font-size: 0.95rem; outline: none; background: #fff; }
+.form-control-block input:focus, .form-control-block select:focus { border-color: var(--primary-color); }
+
+.wizard-action-footer { display: flex; justify-content: space-between; margin-top: 35px; border-top: 1px solid #f1f2f6; padding-top: 20px; }
+.btn-wiz { padding: 11px 30px; border-radius: 4px; font-family: var(--font-family); font-weight: 700; cursor: pointer; font-size: 0.95rem; border: none; }
+.btn-wiz.back { background: #f1f2f6; color: var(--text-dark); }
+.btn-wiz.next { background: var(--secondary-color); color: #fff; margin-right: auto; }
+.btn-wiz.submit { background: var(--primary-color); color: #fff; margin-right: auto; }
+
+/* شبكة الفرص التطوعية */
+.opportunities-section-live { padding: 50px 0 20px 0; }
+.block-header-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 2px solid #f5f5f5; padding-bottom: 10px; }
+.opps-live-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.opp-live-card { background: #fff; border-radius: 8px; border: 1px solid #eef2f0; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
+.opp-card-badge-tag { position: absolute; top: 20px; left: 20px; background: var(--primary-color); color: #fff; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+.opp-live-card h4 { font-size: 1.2rem; color: var(--primary-color); font-weight: 700; margin-bottom: 8px; }
+.opp-live-card .meta-town { font-size: 0.85rem; color: var(--text-light); margin-bottom: 15px; font-weight: 600; }
+.opp-live-card .desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+.opp-meta-row-info { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-dark); border-top: 1px dashed #eee; padding-top: 15px; margin-bottom: 15px; font-weight: 600; }
+.btn-apply-opp { width: 100%; padding: 10px; background: #fff; border: 1px solid var(--secondary-color); color: var(--secondary-color); border-radius: 4px; font-weight: 700; font-family: var(--font-family); cursor: pointer; font-size: 0.88rem; transition: all 0.3s; }
+.btn-apply-opp:hover { background: var(--secondary-color); color: #fff; }
+
+/* ميثاق المتطوع */
+.charter-info-block { padding: 40px 0; }
+.charter-card-layout { background: #fafbfc; border: 1px solid #e4e7eb; padding: 35px; border-radius: 8px; }
+.charter-text h4 { color: var(--primary-color); font-size: 1.25rem; margin-bottom: 15px; font-weight: 700; }
+.charter-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.charter-list li { font-size: 0.92rem; color: var(--text-dark); font-weight: 600; line-height: 1.6; }
+
+/* الفوتر */
+.main-footer { background: #093024 !important; color: #fff; padding: 50px 0 20px 0; width: 100%; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 50px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 40px; }
+.footer-logo { height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+.footer-about p { font-size: 0.95rem; color: #ddd; line-height: 1.7; }
+.footer-grid h4 { color: var(--secondary-color); margin-bottom: 25px; font-size: 1.2rem; font-weight: 700; }
+.footer-grid a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; margin-bottom: 14px; font-size: 0.95rem; }
+.footer-grid a:hover { color: var(--secondary-color); }
+.footer-contact p { font-size: 0.95rem; color: #eee; margin-bottom: 12px; }
+.footer-bottom { text-align: center; padding-top: 25px; font-size: 0.9rem; color: #ccc; }
+
+/* ==========================================================================
+   🚨 التجاوب الشامل للهواتف والأجهزة اللوحية
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .fields-grid-layout, .opps-live-grid { grid-template-columns: repeat(2, 1fr); }
+    .charter-list { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 992px) {
+    .navbar { flex-direction: column; gap: 12px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 5px; }
+    .volunteer-hero { padding: 50px 0; text-align: center; }
+    .hero-inside h1 { font-size: 2.2rem; }
+    .hero-inside p { max-width: 100%; }
+    .hero-action-buttons { justify-content: center; }
+    .features-inside-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+    .flow-wrapper-box { flex-direction: column; text-align: center; gap: 20px; }
+    .flow-steps-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .wizard-steps-timeline { flex-direction: column; gap: 8px; border-bottom: none; }
+    .w-step { padding-bottom: 5px; border-bottom: 1px solid #eee; }
+    .w-step.active { border-bottom: 2px solid var(--primary-color); margin-bottom: 0; padding-bottom: 8px; }
+    .wizard-container-card { padding: 20px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 650px) {
+    .features-inside-grid, .fields-grid-layout, .opps-live-grid, .flow-steps-grid, .form-grid-twin { 
+        grid-template-columns: 1fr; 
+    }
+    .btn-hero, .btn-wiz {
+        width: 100%;
+        text-align: center;
+    }
+}

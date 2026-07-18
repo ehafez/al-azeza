@@ -1,0 +1,159 @@
+/* ==========================================================================
+   ملف admin.css المحدث بالكامل لدعم الأجهزة اللوحية والهواتف
+   ========================================================================== */
+
+:root { 
+    --primary-color: #0E4736; 
+    --secondary-color: #C19A4B; 
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Cairo', sans-serif; 
+}
+
+body { 
+    background: #f5f6fa; 
+    display: flex; 
+    min-height: 100vh; 
+}
+
+/* شريط التنقل الجانبي */
+.sidebar { 
+    width: 260px; 
+    background: var(--primary-color); 
+    color: #fff; 
+    padding: 20px; 
+    flex-shrink: 0;
+}
+.sidebar h2 { 
+    font-size: 1.3rem; 
+    text-align: center; 
+    margin-bottom: 30px; 
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+    padding-bottom: 15px; 
+}
+.sidebar a { 
+    display: block; 
+    color: #fff; 
+    text-decoration: none; 
+    padding: 12px; 
+    margin-bottom: 5px; 
+    border-radius: 4px; 
+    font-weight: 600; 
+}
+.sidebar a:hover, .sidebar a.active { 
+    background: var(--secondary-color); 
+}
+
+/* المحتوى الأساسي */
+.main-content { 
+    flex: 1; 
+    padding: 30px; 
+    overflow-y: auto; 
+}
+.header-dashboard { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 6px; 
+}
+.grid-sections { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+}
+.panel-card { 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 6px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03); 
+    margin-bottom: 30px; 
+}
+.panel-card h3 { 
+    color: var(--primary-color); 
+    margin-bottom: 15px; 
+    border-bottom: 2px solid #f1f2f6; 
+    padding-bottom: 10px; 
+}
+
+/* الاستمارات */
+.form-control { margin-bottom: 15px; }
+.form-control label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
+.form-control input, .form-control select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+
+.btn-action { 
+    background: var(--primary-color); 
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    width: 100%; 
+}
+.btn-action:hover { background: var(--secondary-color); }
+
+.user-profile-summary { padding: 10px; background: rgba(255, 255, 255, 0.08); border-radius: 4px; margin-top: 10px; text-align: center; }
+#userInfoName { font-weight: 700; font-size: 1rem; color: var(--secondary-color); }
+#userInfoRole { font-size: 0.8rem; opacity: 0.85; margin-top: 2px; }
+
+.admin-supervisor-only-block { display: block; }
+table th, table td { padding: 10px 8px; border-bottom: 1px solid #eee; }
+table tr:hover { background-color: #fafbfc; }
+
+.admin-tab-content { display: none; }
+.admin-tab-content.active-tab { display: block !important; }
+
+.sidebar .tab-btn { display: block; color: #fff; text-decoration: none; padding: 11px 14px; margin-bottom: 4px; border-radius: 4px; font-weight: 600; font-size: 0.88rem; transition: background 0.2s ease; }
+.sidebar .tab-btn:hover, .sidebar .tab-btn.active { background: var(--secondary-color) !important; }
+.tabs-container-wrapper { margin-top: 10px; }
+
+/* العدادات والمؤشرات */
+.urgent-marquee-wrapper { display: flex; align-items: center; background: #fff0f6; border: 1px solid #ffadd2; border-right: 5px solid #ff4d4f; border-radius: 6px; padding: 12px 15px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(255, 77, 79, 0.05); }
+.urgent-marquee-wrapper .ticker-title { background: #ff4d4f; color: #fff; padding: 4px 10px; font-weight: 700; font-size: 0.85rem; border-radius: 4px; white-space: nowrap; margin-left: 15px; }
+.urgent-marquee-wrapper .ticker-text-container { flex: 1;  overflow: hidden; color: #cf1322; font-weight: 700; font-size: 0.95rem; }
+
+.kpi-interactive-card { background: #ffffff; border: 1px solid #eef2f0; border-radius: 8px; padding: 22px 18px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.01); transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; overflow: hidden; }
+.kpi-interactive-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(14, 71, 84, 0.06); border-color: var(--secondary-color); }
+.kpi-icon-box { font-size: 1.8rem; opacity: 0.8; margin-bottom: 8px; }
+.kpi-interactive-card h4 { font-size: 2.3rem; color: var(--primary-color); font-weight: 700; margin: 5px 0; }
+.kpi-main-title { font-size: 0.9rem; color: #444; font-weight: 600; margin-bottom: 12px; }
+
+.kpi-sub-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-top: 5px; }
+.bg-blue { background: #e6f7ff; color: #1890ff; }
+.bg-green { background: #f6ffed; color: #52c41a; }
+.bg-gold { background: #fffbe6; color: #d46b08; }
+.bg-orange { background: #fff7e6; color: #fa8c16; }
+.bg-teal { background: #e6fffb; color: #13c2c2; }
+.bg-red { background: #fff1f0; color: #f5222d; }
+
+.operation-modal { transition: opacity 0.3s ease; }
+.modal-content-card span:hover { color: #ff4d4f !important; }
+.progress-bar-container-kpi { width: 100%; background-color: #f0f0f0; border-radius: 4px; overflow: hidden; position: relative; height: 18px; display: flex; align-items: center; justify-content: center; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); }
+.progress-bar-fill-kpi { background-color: var(--primary-color); height: 100%; position: absolute; right: 0; top: 0; transition: width 0.4s ease; z-index: 1; }
+.progress-bar-text-kpi { position: relative; z-index: 2; font-size: 0.75rem; font-weight: 700; color: #333; }
+
+/* ==========================================================================
+   🚨 تجاوب شاشة الإدارة والأدمن للألواح والهواتف
+   ========================================================================== */
+@media (max-width: 992px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; padding: 15px; text-align: center; }
+    .sidebar h2 { margin-bottom: 15px; }
+    .sidebar .tab-btn { display: inline-block; margin: 4px; font-size: 0.8rem; }
+    .main-content { padding: 15px; }
+    .header-dashboard { flex-direction: column; text-align: center; gap: 10px; }
+    .grid-sections { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .modal-content-card { width: 95% !important; padding: 15px; }
+    table { font-size: 0.8rem; }
+    th, td { padding: 8px 4px; }
+}

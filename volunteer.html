@@ -3,108 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة التطوع والانتساب - منصة الأعزاء</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+    <title>تطوع معنا وكن جزءاً من الاستجابة | منصة أعزاء</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة الأيقونات الاحترافية الفيكتور -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="volunteer.css">
 </head>
 <body>
 
-    <button id="backToTop" class="back-to-top" aria-label="العودة إلى الأعلى"><i class="fa-solid fa-arrow-up"></i></button>
-
-    <!-- ترويسة الصفحة -->
-    <header class="page-hero">
-        <div class="container top-row d-flex justify-content-between align-items-center">
-            <a class="btn btn-sm btn-outline-warning back-btn" href="index.html"><i class="fa-solid fa-arrow-right me-1"></i> عودة للرئيسية</a>
-            <a href="index.html" class="luxury-brand-logo small-logo text-decoration-none">
-                <i class="fa-solid fa-hand-holding-heart me-2 brand-icon"></i>الأعزّاء
-            </a>
-        </div>
-        <div class="container text-center">
-            <h1 class="page-hero-title"><i class="fa-solid fa-user-plus me-2 pulse-icon"></i>بوابة الانتساب والتطوع للخدمات</h1>
-            <p class="page-hero-sub Amiri-font">"وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ" .. بهمّتك وإيدك منرجع منعمّر الجنوب</p>
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo">
+                <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="camps.html">مخيمات الاستجابة</a> 
+                <a href="operations.html">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+                <a href="volunteer.html" class="active">تطوع</a>
+                <a href="news.html">الأخبار</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="about.html"> عن أعزاء</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://wa.me/96171123456" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp style-icon"></i> تواصل عبر واتساب</a>
+            </div>
         </div>
     </header>
 
-    <div class="container my-5 reveal-on-scroll" style="max-width: 640px;">
-        <div class="card shadow-sm border-0 p-4 luxury-card">
-            <p class="text-muted small text-center mb-4 fw-bold">أهلاً فيك يا راعي الخير، عبّي الاستمارة وفريقنا رح يتواصل معك خلال 48 ساعة.</p>
+    <section class="volunteer-hero" style="background-image: linear-gradient(to left, rgba(255,255,255,0.94), rgba(255,255,255,0.4)), url('/picture/1.jpg');">
+        <div class="container hero-inside">
+            <h1>تطوّع معنا<br>وكن جزءاً من الاستجابة</h1>
+            <p>سجّل مهاراتك ومنطقتك والأوقات المتاحة لديك، وسنتواصل معك عبر واتساب عند توفر مهمة تناسبك.</p>
+            <div class="hero-action-buttons">
+                <button class="btn-hero action-green" onclick="scrollToForm()"><i class="fas fa-user-plus style-icon"></i> سجل كمتطوع</button>
+                <a href="https://wa.me/96171123456" target="_blank" class="btn-hero action-gold"><i class="fab fa-whatsapp style-icon"></i> سجل عبر واتساب</a>
+                <button class="btn-hero action-white" onclick="scrollToOpportunities()"><i class="fas fa-clipboard-list style-icon"></i> استعرض المهام المتاحة</button>
+            </div>
+        </div>
+    </section>
 
-            <form id="form-volunteer-submit">
-                <!-- نوع الانتساب -->
-                <div class="mb-4">
-                    <div class="form-section-label"><i class="fa-solid fa-user-plus me-1"></i> خيار الانتساب للمنصة</div>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="volunteerType" id="typeIndividual" checked>
-                            <label class="form-check-label" for="typeIndividual">فرد (طلب انتساب وتطوع)</label>
+    <section class="why-volunteer-bar container">
+        <h3 class="bar-title">لماذا التطوع مع أعزاء؟</h3>
+        <div class="features-inside-grid">
+            <div class="feature-item-box"><i class="fas fa-users style-icon-box"></i> <h4>تنضم إلى فرق منظمة</h4><p>ضمن عمليات استجابة واضحة</p></div>
+            <div class="feature-item-box"><i class="fas fa-tools style-icon-box"></i> <h4>تصلك مهمات مناسبة</h4><p>لمهاراتك ومنطقتك الجغرافية</p></div>
+            <div class="feature-item-box"><i class="fas fa-shield-alt style-icon-box"></i> <h4>تعرف مسبقاً طبيعة المهمة</h4><p>ومدتها ومتطلبات السلامة الميدانية</p></div>
+            <div class="feature-item-box"><i class="fas fa-chart-line style-icon-box"></i> <h4>تتابع أثر مشاركتك</h4><p>ضمن تقارير الإنجاز الدورية</p></div>
+        </div>
+    </section>
+
+    <section class="fields-section container">
+        <h3 class="section-main-title">مجالات التطوع</h3>
+        <div class="fields-grid-layout">
+            <div class="field-mini-card"><i class="fas fa-bullhorn style-icon-field"></i> <h4>دعم رقمي وإعلامي</h4><p>تصميم، تصوير، ترجمة، برمجة، إدخال بيانات</p></div>
+            <div class="field-mini-card"><i class="fas fa-briefcase style-icon-field"></i> <h4>دعم مهني</h4><p>هندسة، طب، تمريض، قانون، دعم نفسي</p></div>
+            <div class="field-mini-card"><i class="fas fa-truck style-icon-field"></i> <h4>نقل ولوجستيات</h4><p>قيادة، نقل مواد، تخزين، جرد وإمداد</p></div>
+            <div class="field-mini-card"><i class="fas fa-home style-icon-field"></i> <h4>إصلاحات ومأوى</h4><p>أبواب، نوافذ، دهان، صيانة خفيفة للمراكز</p></div>
+            <div class="field-mini-card"><i class="fas fa-tint style-icon-field"></i> <h4>مياه وصرف صحي</h4><p>سباكة، مضخات، تمديدات، خزانات مياه</p></div>
+            <div class="field-mini-card"><i class="fas fa-bolt style-icon-field"></i> <h4>كهرباء وإنارة</h4><p>كشف أعطال، تمديدات، صيانة خطوط</p></div>
+            <div class="field-mini-card"><i class="fas fa-snowplow style-icon-field"></i> <h4>رفع ركام وتنظيف</h4><p>إزالة مخلفات، فرز مواد، فتح ممرات وطرقات</p></div>
+            <div class="field-mini-card"><i class="fas fa-user-shield style-icon-field"></i> <h4>تطوع ميداني</h4><p>تنظيف، توضيب، توزيع، دعم فرق العمل على الأرض</p></div>
+            <div class="field-mini-card"><i class="fas fa-comment-dots style-icon-field"></i> <h4>مهارة أو خدمة أخرى</h4><p>اختر مهارة أخرى تريد تقديمها للمبادرة</p></div>
+        </div>
+    </section>
+
+    <section class="how-it-works-flow container">
+        <div class="flow-wrapper-box">
+            <div class="flow-text-side">
+                <div class="flow-steps-grid">
+                    <div class="flow-step"><span class="f-num">1</span><h4>تسجل بياناتك</h4><p>عبر النموذج بالأسفل</p></div>
+                    <div class="flow-step"><span class="f-num">2</span><h4>نراجع ونصنف مهاراتك</h4><p>وفق القوائم الهندسية والميدانية</p></div>
+                    <div class="flow-step"><span class="f-num">3</span><h4>تصلك دعوة مناسبة</h4><p>عبر اتصال أو رسالة واتساب</p></div>
+                    <div class="flow-step"><span class="f-num">4</span><h4>تؤكد المشاركة وتنضم للفريق</h4><p>وتبدأ صناعة الأثر معنا</p></div>
+                </div>
+            </div>
+            <div class="flow-notice-side">
+                <i class="fas fa-lightbulb style-icon-notice"></i> <strong>مهم:</strong> التسجيل لا يعني تكليفاً فورياً، بل يضيفك إلى قاعدة المتطوعين ليتم التواصل معك فور توفر مهمة ميدانية مطابقة لتخصصك ونطاقك الجغرافي.
+            </div>
+        </div>
+    </section>
+
+    <section id="volunteerFormSection" class="volunteer-wizard-section container">
+        <h3 class="section-main-title" style="text-align: center;">سجل كمتطوع</h3>
+        <div class="wizard-container-card">
+            <div class="wizard-steps-timeline">
+                <div class="w-step active" id="indicator1">1. المعلومات الأساسية</div>
+                <div class="w-step" id="indicator2">2. نوع التطوع والمهارات</div>
+                <div class="w-step" id="indicator3">3. التوفر </div>
+                <div class="w-step" id="indicator4">4. الموافقة والتأكيد</div>
+            </div>
+
+            <form id="volunteerRegisterForm">
+                <div class="wizard-panel-inside active" id="panelStep1">
+                    <div class="form-grid-twin">
+                        <div class="form-control-block">
+                            <label>الاسم الكامل *</label>
+                            <input type="text" id="vName" placeholder="اكتب اسمك الثلاثي" required>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="volunteerType" id="typeCompany">
-                            <label class="form-check-label" for="typeCompany">جهة / شركة / مصنع داخل أو خارج لبنان</label>
+                        <div class="form-control-block">
+                            <label>رقم هاتف الواتساب المباشر *</label>
+                            <input type="tel" id="vPhone" placeholder="مثال: +96171123456" required>
                         </div>
+                    </div>
+                    <div class="form-grid-twin" style="margin-top: 15px;">
+                        <div class="form-control-block">
+                            <label>المحافظة *</label>
+                            <input type="text" id="vGovernorate" placeholder="مثال: النبطية أو الجنوب" required>
+                        </div>
+                        <div class="form-control-block">
+                            <label>القضاء *</label>
+                            <input type="text" id="vDistrict" placeholder="مثال: بنت جبيل أو صور" required>
+                        </div>
+                    </div>
+                    <div class="form-grid-twin" style="margin-top: 15px;">
+                        <div class="form-control-block">
+                            <label>البلدة أو المنطقة *</label>
+                            <input type="text" id="vRegion" placeholder="مثال: عيترون، الخيام، بنت جبيل..." required>
+                        </div>
+                        <div class="form-control-block">
+                            <label>الفئة العمرية *</label>
+                            <select id="vAgeGroup">
+                                <option value="18-25">18 - 25 سنة</option>
+                                <option value="26-35">26 - 35 سنة</option>
+                                <option value="36-50">36 - 50 سنة</option>
+                                <option value="50+">أكثر من 50 سنة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-control-block" style="margin-top: 15px;">
+                        <label>اللغة / اللغات التي تتقنها *</label>
+                        <input type="text" id="vLanguages" value="العربية" placeholder="العربية، الإنجليزية..." required>
                     </div>
                 </div>
 
-                <hr class="opacity-10">
-
-                <!-- البيانات الأساسية -->
-                <div class="mb-3">
-                    <label for="vName" class="form-label fw-bold">الاسم الكامل / اسم الجهة</label>
-                    <input type="text" class="form-control" id="vName" required placeholder="أدخل الاسم">
+                <div class="wizard-panel-inside" id="panelStep2">
+                    <div class="form-control-block">
+                        <label>مجال التطوع الرئيسي الذي تجده مناسباً لك:</label>
+                        <input type="text" id="vField" placeholder="مثال: رفع ركام، كهرباء وإنارة، دعم رقمي...">
+                    </div>
+                    <div class="form-control-block" style="margin-top: 15px;">
+                        <label>التخصص المهني أو الهندسي (إن وجد):</label>
+                        <select id="vSpecialty">
+                            <option value="none">لا يوجد تخصص محدد (عام الميدان)</option>
+                            <option value="engineering">الهندسة المدنية / المعمارية</option>
+                            <option value="electricity">الكهرباء والطاقة</option>
+                            <option value="logistics">الدعم اللوجستي وإدارة المخازن</option>
+                            <option value="materials">المواد والمعدات الفنية</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="vPhone" class="form-label fw-bold">رقم الهاتف (واتساب)</label>
-                    <input type="tel" class="form-control" id="vPhone" required placeholder="03XXXXXX">
+                <div class="wizard-panel-inside" id="panelStep3">
+                    <div class="form-control-block">
+                        <label>الأيام والأوقات المتاحة لديك للتطوع الميداني:</label>
+                        <input type="text" id="vAvailableDays" placeholder="مثال: عطلة نهاية الأسبوع، كافة أيام الأسبوع، فترات مسائية...">
+                    </div>
                 </div>
 
-                <!-- تحديد مجال التطوع الميداني الدقيق -->
-                <div class="mb-4">
-                    <label class="form-label fw-bold text-dark"><i class="fa-solid fa-heart-circle-check text-warning me-1"></i> وين حابب تكون متطوع؟ (مجال العمل الميداني)</label>
-                    <select class="form-select border-warning" id="vField" required>
-                        <option value="" selected disabled>اختر المجال الميداني الفردي...</option>
-                        <option value="media">إعلامي (تغطية، تصوير، توثيق قصص الإعمار)</option>
-                        <option value="activities">أنشطة ميدانية (تنظيم، ورش بناء، طلاء، جهد بدني)</option>
-                        <option value="medical">صحي (إسعاف، رعاية أولية، تأمين أدوية)</option>
-                        <option value="psychological">دعم نفسي (مساندة عائلات وأطفال عائدين)</option>
-                        <option value="none">أنا شركة / جهة مانحة لمواد بناء وخدمات فقط</option>
-                    </select>
+                <div class="wizard-panel-inside" id="panelStep4">
+                    <h4 style="color: var(--primary-color); font-weight: 700; margin-bottom: 15px;"><i class="fas fa-scroll style-icon"></i> مواثيق التطوع للمبادرة</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px;">
+                        أتعهد بالالتزام بتوجيهات منسقي الساحة، واحترام خصوصية وكرامة كافة العائلات المتضررة، وعدم تصوير المستفيدين أو نشر أي مواقع جغرافية للمخازن إلا بعد إذن الإدارة العامة، والالتزام الكامل بقواعد السلامة الميدانية المعتمدة.
+                    </p>
+                    <label style="display: flex; align-items: center; gap: 10px; font-weight: 700; cursor: pointer; color: var(--primary-color);">
+                        <input type="checkbox" id="vAgreedCharter" style="width: auto;" required>
+                        <span>أوافق على ميثاق المتطوع وأتعهد بالالتزام الكامل ببنوده <i class="fas fa-pen-alt style-icon-text"></i></span>
+                    </label>
                 </div>
 
-                <!-- مجالات الخدمات اللوجستية والمهنية -->
-                <div class="mb-4">
-                    <label for="vSpecialty" class="form-label fw-bold"><i class="fa-solid fa-truck-ramp-box text-warning me-1"></i> خدمات لوجستية ومواد بناء (إن وجدت)</label>
-                    <select class="form-select" id="vSpecialty">
-                        <option value="none" selected>لا يوجد (تطوع ميداني فردي فقط)</option>
-                        <option value="engineering">استشارات هندسية وإشراف فني</option>
-                        <option value="materials">تأمين مواد بناء (إسمنت، حجر، طلاء، حديد)</option>
-                        <option value="logistics">خدمات لوجستية (آليات ثقيلة، جرافات، نقل ومعدات)</option>
-                        <option value="electricity">تمديدات كهربائية وصحية وطاقة شمسية</option>
-                    </select>
+                <div class="wizard-action-footer">
+                    <button type="button" class="btn-wiz back" id="btnBackWiz" style="display: none;">السابق</button>
+                    <button type="button" class="btn-wiz next" id="btnNextWiz">التالي</button>
+                    <button type="submit" class="btn-wiz submit" id="btnSubmitWiz" style="display: none;">تأكيد وإرسال طلب الانضمام للفرق <i class="fas fa-paper-plane"></i></button>
                 </div>
-
-                <div class="mb-3">
-                    <label for="vRegion" class="form-label fw-bold">النطاق الجغرافي للتواجد (مكان رغبتك بالخدمة)</label>
-                    <input type="text" class="form-control" id="vRegion" required placeholder="مثال: قضاء بنت جبيل، قرى صور...">
-                </div>
-
-                <button type="submit" class="btn btn-gold-primary btn-cta w-100 mt-3 shadow-sm">
-                    <i class="fa-solid fa-paper-plane me-2"></i>إرسال طلب الانتساب والمساهمة
-                </button>
-                <p class="text-center text-muted small mt-3 mb-0"><i class="fa-solid fa-lock me-1"></i> بياناتك محفوظة بسرّية تامة</p>
             </form>
         </div>
-    </div>
+    </section>
 
-    <footer class="site-footer-mini">
-        <span class="text-gold fw-bold">منصة الأعزاء</span> © 2026 - مبادرة أهلية تطوعية تكافلية
+    <section id="opportunitiesSection" class="opportunities-section-live container">
+        <div class="block-header-meta">
+            <h3 class="section-main-title">فرص تطوعية متاحة الآن</h3>
+            <span style="color: var(--text-light); font-size: 0.9rem;">عرض جميع المهام الملحة الجارية بالميدان</span>
+        </div>
+        <div class="opps-live-grid" id="liveOpportunitiesContainer"></div>
+    </section>
+
+    <section class="charter-info-block container">
+        <div class="charter-card-layout">
+            <div class="charter-text">
+                <h4>ميثاق المتطوع الكامل للمنصة</h4>
+                <ul class="charter-list">
+                    <li><i class="fas fa-check-circle style-icon-li"></i> الالتزام الكامل بتعليمات مهندسي وقادة فرق الاستجابة بالميدان.</li>
+                    <li><i class="fas fa-check-circle style-icon-li"></i> احترام الناس وخصوصياتهم وحفظ كراماتهم في كافة الظروف.</li>
+                    <li><i class="fas fa-check-circle style-icon-li"></i> عدم تصوير المستفيدين أو توثيق المواقع الحساسة دون موافقة إدارية مسبقة.</li>
+                    <li><i class="fas fa-check-circle style-icon-li"></i> الالتزام الكامل بإجراءات السلامة، وارتداء الخوذ وبدلات العمل الميدانية.</li>
+                    <li><i class="fas fa-check-circle style-icon-li"></i> إبلاغ الفريق مسبقاً وبفترة كافية عند عدم القدرة على الحضور للمهمة المكلف بها.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="logo">
+                    <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+                </div>
+                <p>مبادرة مجتمعية إنسانية مستقلة، نعمل مع المتطوعين والشركاء للاستجابة للاحتياجات وبناء الإنسان نحو مستقبل أفضل بالكامل.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">عن المبادرة</a>
+                <a href="operations.html">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+            </div>
+            <div class="footer-contact">
+                <h4>تواصل معنا</h4>
+                <p><i class="fas fa-phone-alt style-icon-footer"></i> +961 71 123 456</p>
+                <p><i class="fas fa-envelope style-icon-footer"></i> info@ezzai.org</p>
+                <p><i class="fas fa-map-marker-alt style-icon-footer"></i> لبنان - قضاء بنت جبيل</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة لمبادرة أعزاء للاستجابة المجتمعية 2026 &copy;</p>
+        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="volunteer.js"></script>
 </body>
 </html>

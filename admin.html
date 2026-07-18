@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غرفة القيادة والتحكم الاحترافية | منصة أعزاء</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- شريط التنقل الجانبي الاحترافي المحدث بالتبويبات الـ 10 -->
+<div class="sidebar">
+    <h2>لوحة تحكم أعزاء</h2>
+    <div class="user-profile-summary">
+        <div id="userInfoName">⏳ جاري التحميل...</div>
+        <div id="userInfoRole">..</div>
+    </div>
+    <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;">
+    
+    <!-- أزرار التبويبات التفاعلية -->
+     <a href="#" class="tab-btn active" onclick="switchAdminTab(event, 'tab-overview')">📈 الملخص العام للمنصة</a>
+    <a href="#" class="tab-btn " onclick="switchAdminTab(event, 'tab-users')">🔐 1. إدارة المستخدمين</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-stats')">📊 2. تحديث المؤشرات</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-ops')">🚜 3. مسارات الاستجابة</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-camps')">⛺ 4. جدولة المخيمات</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-needs')">📦 5. إضافة احتياج ميداني</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-pledges')">🤝 6. كشف التبرعات الحية</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-opps')">🚀 7. نشر فرصة تطوعية</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-volunteers')">📋 8. كشف طلبات المتطوعين</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-news')">📢 9. الإعلام والنشرات</a>
+    <a href="#" class="tab-btn" onclick="switchAdminTab(event, 'tab-messages')">📥 10. صندوق المراسلات والشكاوى</a>
+    
+    <a href="index.html" target="_blank" style="margin-top: 20px; background: rgba(255,255,255,0.05); text-align: center;">🌐 معاينة الموقع الرئيسي</a>
+    <a href="#" onclick="logoutUser();" style="margin-top: auto; background: #c0392b; text-align: center;">🔒 تسجيل الخروج</a>
+</div>
+
+<!-- محتوى التحكم الرئيسي الموجه ديناميكياً -->
+<div class="main-content">
+    <div class="header-dashboard">
+        <h2>غرفة القيادة والتحكم الإدارية للمنصة 🛠️</h2>
+        <span id="currentDateDisplay" style="font-weight: 600; color: #666;"></span>
+    </div>
+
+    <div class="tabs-container-wrapper">
+
+       <!-- تبويب الاستعراض والملخص العام المطور للمنصة -->
+<div id="tab-overview" class="admin-tab-content active-tab">
+    
+    <!-- شريط البلاغات والنداءات الميدانية العاجلة جداً المطور -->
+    <div class="urgent-marquee-wrapper" id="urgentLiveTickerWrapper" style="display: none;">
+        <div class="ticker-title">🚨 نداء عاجل جداً</div>
+        <div class="ticker-text-container">
+            <marquee behavior="scroll" direction="right" scrollamount="6" id="urgentLiveMarqueeText">
+                جاري جلب آخر النداءات العاجلة من غرف العمليات المشتركة...
+            </marquee>
+        </div>
+    </div>
+
+    <div class="panel-card">
+        <h3>📊 غرفة المراقبة السريعة ومؤشرات الأداء (KPIs)</h3>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">تحليل إحصائي حركي يعكس أداء الكوادر، والعمل اللوجستي، ونسب استجابة المتطوعين حياً على مستوى الأقسام.</p>
+        
+        <!-- شبكة كروت العدادات التفاعلية المطورة بالمؤشرات الفرعية -->
+        <div class="grid-sections" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+            
+            <!-- كارت 1: الكوادر -->
+            <div class="kpi-interactive-card">
+                <div class="kpi-icon-box">User👥</div>
+                <h4 id="overview-count-users">0</h4>
+                <p class="kpi-main-title">مسؤولي النظام والكوادر</p>
+                <div class="kpi-sub-badge bg-blue">الأدوار الـ 13 مفعلة</div>
+            </div>
+
+            <!-- كارت 2: مسارات العمليات -->
+            <div class="kpi-interactive-card">
+                <div class="kpi-icon-box">🚜</div>
+                <h4 id="overview-count-ops">0</h4>
+                <p class="kpi-main-title">مسارات العمل والعمليات</p>
+                <div class="kpi-sub-badge bg-green" id="kpi-sub-ops-active">0 عملية نشطة حالياً</div>
+            </div>
+
+            <!-- كارت 3: المخيمات الجارية -->
+            <div class="kpi-interactive-card">
+                <div class="kpi-icon-box">⛺</div>
+                <h4 id="overview-count-camps">0</h4>
+                <p class="kpi-main-title">مخيمات الاستجابة والورش</p>
+                <div class="kpi-sub-badge bg-gold" id="kpi-sub-camps-capacity">طاقة استيعابية آمنة</div>
+            </div>
+
+            <!-- كارت 4: تعهدات المساهمة -->
+            <div class="kpi-interactive-card">
+                <div class="kpi-icon-box">🤝</div>
+                <h4 id="overview-count-pledges">0</h4>
+                <p class="kpi-main-title">تعهدات الدعم والمساهمات</p>
+                <div class="kpi-sub-badge bg-orange" id="kpi-sub-pledges-pending">⏳ 0 قيد التدقيق والمتابعة</div>
+            </div>
+
+            <!-- كارت 5: طلبات التطوع -->
+            <div class="kpi-interactive-card">
+                <div class="kpi-icon-box">🧑‍🤝‍🧑</div>
+                <h4 id="overview-count-volunteers">0</h4>
+                <p class="kpi-main-title">طلبات المبادرين المسجلين</p>
+                <div class="kpi-sub-badge bg-teal" id="kpi-sub-volunteers-active">0 مبادرين نشطين ميدانياً</div>
+            </div>
+
+            <!-- كارت 6: تواصل معنا والشكاوى -->
+            <div class="kpi-interactive-card">
+                <div class="kpi-icon-box">📥</div>
+                <h4 id="overview-count-messages">0</h4>
+                <p class="kpi-main-title">رسائل وشكاوى تواصل معنا</p>
+                <div class="kpi-sub-badge bg-red" id="kpi-sub-messages-complaints">🚨 0 بلاغات/شكاوى طارئة</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- تبويب 2: إدارة المستخدمين ومنح صلاحيات الوصول المطور -->
+<div id="tab-users" class="admin-tab-content panel-card auth-restricted admin-only">
+    <h3>🔐 إدارة المستخدمين ومنح صلاحيات الوصول المشتركة</h3>
+    <form id="addUserForm" style="margin-top: 15px;">
+        <div class="form-control">
+            <label>الاسم الكامل للموظف/المبادر *</label>
+            <input type="text" id="newUserName" required placeholder="">
+        </div>
+        <div class="form-control">
+            <label>البريد الإلكتروني الرسمي *</label>
+            <input type="email" id="newUserEmail" required placeholder="">
+        </div>
+        
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <div class="form-control">
+                <label>رقم الهاتف المباشر</label>
+                <input type="text" id="newUserPhone" placeholder="">
+            </div>
+            <div class="form-control">
+                <label>المستوى الإداري وصلاحية الوصول *</label>
+                <select id="newUserRole" required style="font-family:'Cairo'; font-weight:600;">
+                    <option value="" disabled selected>اختر الدور الميداني أو الإداري...</option>
+                    <option value="1">🛡️ مدير النظام</option>
+                    <option value="2">🏛️ الإدارة المركزية</option>
+                    <option value="3">🗺️ منسق منطقة</option>
+                    <option value="4">🌐 مسؤول قطاع</option>
+                    <option value="5">🏠 مسؤول بلدة أو حي</option>
+                    <option value="6">⛺ مدير مخيم</option>
+                    <option value="7">📦 مسؤول لوجستي</option>
+                    <option value="8">🩺 مسؤول سلامة</option>
+                    <option value="9">👨‍✈️ قائد فريق</option>
+                    <option value="10">🧑‍🤝‍🧑 مسؤول متطوعين</option>
+                    <option value="11">💰 مسؤول تبرعات</option>
+                    <option value="12">📢 مسؤول إعلام</option>
+                    <option value="13">📊 مدقق</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <!-- حقل التطوير الجغرافي الإلزامي الصارم المضاف حديثاً -->
+            <div class="form-control">
+                <label>📍 النطاق الجغرافي المخصص (Assigned Region) *</label>
+                <select id="newUserRegion" required style="font-family:'Cairo'; font-weight:600;">
+                    <option value="" disabled selected>اختر النطاق الجغرافي للصلاحية...</option>
+                    <option value="عام">🌐 عام المنصة (الإدارة العليا دون قيود)</option>
+                    <option value="بنت جبيل">📍 قضاء بنت جبيل (بنت جبيل، عيترون)</option>
+                    <option value="صور">📍 قضاء صور</option>
+                    <option value="مرجعيون">📍 قضاء مرجعيون (الخيام)</option>
+                    <option value="الهرمل">📍 منطقة الهرمل البقاعية</option>
+                    <option value="النبطية">📍 قضاء النبطية</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>كلمة المرور الافتراضية *</label>
+                <input type="password" id="newUserPass" required placeholder="••••••••">
+            </div>
+        </div>
+        
+        <button type="submit" class="btn-action" style="background: #2980b9;">إضافة وتفعيل حساب المستخدم الجديد 🔑</button>
+    </form>
+
+    <h4 style="margin-top: 30px; color: #0E4736;">👥 لوحة التحكم بمسؤولي النظام والفرز الإقليمي</h4>
+    <div style="overflow-x: auto; margin-top: 10px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.88rem;">
+            <thead>
+                <tr style="background: #0E4736; color: #fff;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">الاسم الكامل</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">الدور الممنوح</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">النطاق الجغرافي</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">التحكم البرمجي</th>
+                </tr>
+            </thead>
+            <tbody id="systemUsersTableBody"></tbody>
+        </table>
+    </div>
+</div>
+     <!-- تبويب 3: تحديث المؤشرات الميدانية والأثر العام المطور هندسياً -->
+<div id="tab-stats" class="admin-tab-content panel-card auth-restricted admin-only">
+    <h3>📊 غرفة إدارة المؤشرات الميدانية والمنجزات الحية</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">تحديث وتعديل الأرقام الإحصائية الحية للمنصة. تنقسم المنظومة إلى مؤشرات تراكمية مستمرة ومؤشرات حركية يومية تخضع للتصفير المؤتمت عند منتصف الليل[cite: 51, 54].</p>
+
+    <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+        
+        <!-- القسم البصري الأول: الأثر العام التراكمي -->
+        <div style="background: #fafbfc; padding: 20px; border-radius: 6px; border: 1px solid #eef2f0; border-top: 4px solid #0E4736;">
+            <h4 style="color: #0E4736; margin-bottom: 15px;">🌐 أولاً: الأثر العام منذ الانطلاق (مستمر)</h4>
+            <form id="statsGeneralForm">
+                <div class="form-control">
+                    <label>اختر المؤشر التراكمي المراد تعديله *</label>
+                    <select id="statKeyGeneral" required style="font-family:'Cairo'; font-weight:600;">
+                        <option value="total_volunteer_hours">ساعات العمل التطوعية التراكمية</option>
+                        <option value="total_regions">المناطق والبلدات المغطاة بالكامل</option>
+                        <option value="total_beneficiaries">إجمالي المستفيدين والمغاثين</option>
+                        <option value="total_aid_packages">الطرود والوجبات الموزعة الكلية</option>
+                        <option value="total_volunteers">إجمالي المتطوعين المسجلين بالمنظومة</option>
+                        <option value="total_financial_support">إجمالي الدعم المالي المحقق ($)</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label>القيمة الرقمية المحدثة الجديدة *</label>
+                    <input type="number" id="statValueGeneral" required placeholder="مثال: 54000">
+                </div>
+                <button type="submit" class="btn-action" style="background: #0E4736;">تحديث مؤشر الأثر التراكمي ونشره الآن 📈</button>
+            </form>
+        </div>
+
+        <!-- القسم البصري الثاني: منجز اليوم الحركي الخاضع للتصفير المؤتمت -->
+        <div style="background: #fffdf6; padding: 20px; border-radius: 6px; border: 1px solid #f6ecdc; border-top: 4px solid #C19A4B;">
+            <h4 style="color: #C19A4B; margin-bottom: 15px;">⚡ ثانياً: منجز اليوم الميداني الحركي (يتصفر 12:00 م)</h4>
+            <form id="statsDailyForm">
+                <div class="form-control">
+                    <label>اختر منجز اليوم المراد إضافته أو تعديله *</label>
+                    <select id="statKeyDaily" required style="font-family:'Cairo'; font-weight:600;">
+                        <option value="daily_families">كفالات وإغاثة أسر اليوم</option>
+                        <option value="daily_meals">وجبات ساخنة موزعة اليوم</option>
+                        <option value="daily_packages">طرود غذائية ميدانية اليوم</option>
+                        <option value="daily_sessions">جلسات توعوية ودعم نفس حركي اليوم</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label>القيمة الرقمية المحققة لليوم الحالي *</label>
+                    <input type="number" id="statValueDaily" required placeholder="مثال: 150">
+                </div>
+                <button type="submit" class="btn-action" style="background: #C19A4B;">حفظ منجز اليوم الميداني الحركي الآن 🚀</button>
+            </form>
+            <div style="margin-top: 15px; font-size: 0.78rem; color: #b45309; font-weight: 600; text-align: center; background: #fffbeb; padding: 8px; border-radius: 4px;">
+                ⚠️ تنبيه للمنسقين: يتكفل السيرفر بنقل هذه القيم للأرشيف وتصفير العدادات تلقائياً عند منتصف الليل لتبدأ الساحات برصد جديد كل صباح.
+            </div>
+        </div>
+
+    </div>
+</div>
+        <!-- تبويب 4: مسارات الاستجابة والعمل الميداني المطور هندسياً ولوجستياً -->
+<div id="tab-ops" class="admin-tab-content panel-card auth-restricted admin-supervisor-worker">
+    <h3>🚜 إدارة وتحديث مسارات العمل والاستجابة الميدانية</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">إضافة مسارات الاستجابة وتحديث نسب الإنجاز ميدانياً مع رصد حركي صارم للميزانيات والموارد اللوجستية المخصصة لكل قضاء[cite: 58].</p>
+
+    <!-- نموذج الإضافة محمي بكلاس المشرفين لمنع تلاعب الأدوار الدنيا -->
+    <form id="opForm" enctype="multipart/form-data" style="margin-top: 15px;" class="admin-supervisor-only-block">
+        <div class="form-control">
+            <label>عنوان مسار الاستجابة الميداني *</label>
+            <input type="text" id="opTitle" required placeholder="مثال: مسار ترميم خط ضخ المياه الرئيسي">
+        </div>
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <div class="form-control">
+                <label>📍 النطاق الجغرافي للمسار الميداني *</label>
+                <select id="opRegion" required style="font-family:'Cairo'; font-weight:600;">
+                    <option value="" disabled selected>اختر منطقة العمل الميداني...</option>
+                    <option value="بنت جبيل">بنت جبيل</option>
+                    <option value="عيترون">عيترون</option>
+                    <option value="الخيام">الخيام</option>
+                    <option value="الهرمل">الهرمل</option>
+                    <option value="صور">صور</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>نسبة الإنجاز الميداني الأولية % *</label>
+                <input type="number" id="opProgress" min="0" max="100" value="0" required>
+            </div>
+        </div>
+
+        <!-- 💰 نظام تتبع الميزانية والمعدات المطور حديثاً -->
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 0; background: #fcfcfc; padding: 12px; border-radius: 4px; border: 1px solid #f1f1f1;">
+            <div class="form-control">
+                <label>💵 الميزانية المرصودة للعملية ($) *</label>
+                <input type="number" id="opAllocatedBudget" min="0" value="0" required placeholder="مثال: 5000">
+            </div>
+            <div class="form-control">
+                <label>📉 الميزانية المستهلكة حتى الآن ($) *</label>
+                <input type="number" id="opConsumedBudget" min="0" value="0" required placeholder="مثال: 1200">
+            </div>
+            <div class="form-control">
+                <label>🚛 المعدات اللوجستية الثقيلة المستخدمة *</label>
+                <select id="opHeavyEquipment" required style="font-family:'Cairo'; font-weight:600;">
+                    <option value="بدون معدات ثقيلة">📦 بدون معدات ثقيلة (توزيع/أعمال يدوية)</option>
+                    <option value="شاحنة نقل لوجستي الكبير">🚛 شاحنة نقل لوجستي كبير</option>
+                    <option value="جราفة رفع الأنقاض والركام">🚜 جرافة رفع الأنقاض والركام</option>
+                    <option value="مضخة مياه غاطسة عميقة 5HP">⚡ مضخة مياه غاطسة عميقة</option>
+                    <option value="جرافة + شاحنة لوجستية مشتركة">🛠️ جرافة + شاحنة لوجستية مشتركة</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-control" style="margin-top: 15px;">
+            <label>صورة ميدانية توثيقية حية للمسار</label>
+            <input type="file" id="opImage" accept="image/*">
+        </div>
+        <button type="submit" class="btn-action">حفظ ونشر مسار الاستجابة والميزانية المرافقة 🚀</button>
+    </form>
+
+    <h4 style="margin-top: 35px; color: #0E4736;">🛠️ كشف المتابعة والتحكم المالي واللوجستي الفوري لمسارات العمل</h4>
+    <p style="color: #888; font-size: 0.8rem; margin-bottom: 12px;">يتم فرز وتصفية هذه القائمة تلقائياً بناءً على النطاق الجغرافي الممنوح لحسابك لمنع التداخل[cite: 55].</p>
+    <div style="max-height: 400px; overflow-y: auto;" id="liveOpsStatusContainer"></div>
+</div>
+
+       <!-- تبويب 5: مخيمات الاستجابة وورش التأهيل المطور بالتحكم الكامل والمنتسبين -->
+<div id="tab-camps" class="admin-tab-content panel-card auth-restricted admin-supervisor-only">
+    <h3>⛺ إضافة وجدولة مخيمات الاستجابة وورش التأهيل</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">جدولة المخيمات السكنية والنهارية للتأهيل الميداني للشباب، ورصد طلبات التقديم والانتساب الإقليمية حياً[cite: 62].</p>
+
+    <form id="campForm" enctype="multipart/form-data" style="margin-top: 15px;">
+        <div class="form-control">
+            <label>اسم أو عنوان المخيم التدريبي الميداني *</label>
+            <input type="text" id="campTitle" required placeholder="مثال: مخيم شباب المبادرة للتأهيل الفني">
+        </div>
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <div class="form-control">
+                <label>نوع الإقامة والجدولة *</label>
+                <select id="campType" required style="font-family:'Cairo'; font-weight:600;">
+                    <option value="day">نهاري (Day Camp)</option>
+                    <option value="residential">سكني كامل (Residential)</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>القدرة الاستيعابية المستهدفة (متطوع) *</label>
+                <input type="number" id="campCapacity" required placeholder="50">
+            </div>
+        </div>
+        <div class="form-control">
+            <label>مكان إقامة وتجمع المخيم بدقة *</label>
+            <input type="text" id="campLocation" required placeholder="مثال: مركز عيترون الثقافي الاجتماعي">
+        </div>
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <div class="form-control">
+                <label>تاريخ البدء والانطلاق *</label>
+                <input type="date" id="campStart" required>
+            </div>
+            <div class="form-control">
+                <label>تاريخ الانتهاء والختام *</label>
+                <input type="date" id="campEnd" required>
+            </div>
+        </div>
+        <div class="form-control">
+            <label>صورة أو بوستر الإعلام الفني للمخيم</label>
+            <input type="file" id="campImage" accept="image/*">
+        </div>
+        <button type="submit" class="btn-action">حفظ وجدولة المخيم الميداني في النطاق المحدد ⛺</button>
+    </form>
+
+    <h4 style="margin-top: 35px; color: #0E4736;">📋 كشف وجداول مخيمات الاستجابة النشطة حالياً على النظام</h4>
+    <div style="overflow-x: auto; margin-top: 15px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.88rem;">
+            <thead>
+                <tr style="background: #0E4736; color: #fff;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">عنوان المخيم</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">الموقع الجغرافي</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">النوع والسعة</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">إدارة الكوادر والمنتسبين</th>
+                </tr>
+            </thead>
+            <tbody id="systemCampsTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- النافذة المنبثقة التفاعلية المخصصة لإدارة المنتسبين للمخيم وتعديل حالتهم وواتساب -->
+<div id="campRegistrantsModal" class="operation-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); font-family: 'Cairo', sans-serif;">
+    <div class="modal-content-card" style="background-color: #fff; margin: 8% auto; padding: 25px; border-radius: 8px; width: 65%; max-width: 800px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); position: relative; direction: rtl; text-align: right;">
+        <span onclick="closeCampRegistrantsModal()" style="position: absolute; left: 20px; top: 15px; font-size: 24px; font-weight: bold; color: #aaa; cursor: pointer; transition: color 0.2s;">&times;</span>
+        <h3 id="modalCampTitle" style="color: #0E4736; border-bottom: 2px solid #eef2f0; padding-bottom: 10px; margin-bottom: 15px;">📋 إدارة طلبات المنتسبين للمخيم</h3>
+        <p style="font-size:0.8rem; color:#666; margin-bottom:15px;">بمبجرد تغيير حالة المنتسب، يتم إعداد رابط المراسلة السريعة على تطبيق WhatsApp لإخطاره فورياً بالنتيجة السيادية[cite: 62].</p>
+        
+        <div style="max-height: 300px; overflow-y: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: #f1f2f6; color: #0E4736;">
+                        <th style="padding: 8px; border: 1px solid #ddd;">اسم المتطوع</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">رقم الهاتف</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">مجال المهارة</th>
+                        <th style="padding: 8px; border: 1px solid #ddd; text-align: center;">حالة الانتساب</th>
+                    </tr>
+                </thead>
+                <tbody id="campRegistrantsModalTableBody"></tbody>
+            </table>
+        </div>
+        <button onclick="closeCampRegistrantsModal()" class="btn-action" style="background: #0E4736; margin-top: 20px; width: auto; float: left; padding: 6px 20px;">حفظ وإغلاق التبويب 🔒</button>
+    </div>
+</div>
+        <!-- تبويب 6: إضافة بند احتياج ميداني عاجل -->
+        <!-- تبويب 6: إضافة وإدارة بنود الاحتياج الميداني العاجل وشريط تقدم التمويل -->
+<div id="tab-needs" class="admin-tab-content panel-card auth-restricted admin-supervisor-only">
+    <h3>📦 إضافة وإدارة بنود الاحتياج الميداني العاجل</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">إحصاء وتعميم بنود الاحتياج العينية واللوجستية وربطها بالمسارات الجارية لتعرض في صفحة الدعم والتمويل العيني.</p>
+
+    <form id="addNeedForm" style="margin-top: 15px;">
+        <div class="form-control">
+            <label>عنوان الحاجة المطلوبة بدقة *</label>
+            <input type="text" id="needTitle" required placeholder="مثال: مضخة مياه غاطسة 5HP أو طرود غذائية">
+        </div>
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <div class="form-control">
+                <label>تصنيف الاحتياج اللوجستي *</label>
+                <select id="needCategory" style="font-family:'Cairo'; font-weight:600;">
+                    <option value="material">📦 تبرع عيني / مواد</option>
+                    <option value="logistic">🚛 مورد أو خدمة لوجستية</option>
+                    <option value="service">🛠️ أدوات وصيانة</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>مستوى الخطورة والأولوية الميدانية *</label>
+                <select id="urgencyLevel" style="font-family:'Cairo'; font-weight:600;">
+                    <option value="urgent">🚨 عاجل جداً</option>
+                    <option value="medium" selected>🔸 مرتفع</option>
+                    <option value="casual">🔹 متوسط</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 0; background:#fafbfc; padding:12px; border-radius:4px; border:1px solid #f1f1f1;">
+            <div class="form-control">
+                <label>📊 الكمية المطلوبة بالكامل *</label>
+                <input type="number" id="reqQty" min="1" value="1" required>
+            </div>
+            <div class="form-control">
+                <label>✅ الكمية المستلمة/المتعهد بها حالياً *</label>
+                <input type="number" id="recQty" min="0" value="0" required>
+            </div>
+            <div class="form-control">
+                <label>وحدة القياس المعتمدة *</label>
+                <input type="text" id="unitName" placeholder="مثال: قطعة، متر، شاحنة" required>
+            </div>
+        </div>
+        <div class="form-control" style="margin-top: 15px;">
+            <label>ربط الاحتياج بمسار عمل ميداني (اختياري)</label>
+            <select id="needOpTarget" style="font-family:'Cairo'; font-weight:600;"></select>
+        </div>
+        <button type="submit" class="btn-action">حفظ ونشر بند الاحتياج في صفحة التبرع حياً 🚀</button>
+    </form>
+
+    <h4 style="margin-top: 35px; color: #0E4736;">📋 كشف متابعة وتقدم التمويل العيني للأقسام الميدانية</h4>
+    <p style="color: #888; font-size: 0.8rem; margin-bottom: 12px;">يتم احتساب ونشر أشرطة تقدم التمويل تلقائياً حياً بناءً على مدخلات الغرفة.</p>
+    
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.85rem;">
+            <thead>
+                <tr style="background: #f1f2f6; color: #0E4736;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">بند الاحتياج</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">التصنيف والأولوية</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">شريط التقدم العيني (المستلم / المطلوب)</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">التحكم اللوجستي</th>
+                </tr>
+            </thead>
+            <tbody id="operationNeedsTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+        <!-- تبويب 7: كشف تعهدات التبرع والمساهمات الواردة حياً -->
+        <!-- تبويب 6: كشف تعهدات التبرع والمساهمات الواردة حياً (المطور بنظام الربط الذكي) -->
+<div id="tab-pledges" class="admin-tab-content panel-card auth-restricted admin-supervisor-only">
+    <h3>🤝 كشف تعهدات التبرع والمساهمات الواردة حياً (Smart Allocator)</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">مراقبة وإدارة مساهمات الداعمين، وتوجيه التبرعات العينية والمادية المستلمة مباشرة إلى قنوات الاحتياج الميداني المفتوحة.</p>
+
+    <!-- نموذج مخفي مدمج بصرياً يظهر فقط عند الضغط على "تعديل التعهد" لمنع تشتيت اللوحة -->
+    <div id="editPledgeFormWrapper" style="display: none; background: #fffdf6; border: 1px solid #f6ecdc; border-top: 4px solid #C19A4B; padding: 20px; border-radius: 6px; margin-bottom: 25px;">
+        <h4 style="color: #C19A4B; margin-bottom: 15px;">✏️ تعديل بيانات مساهمة المتعهد الحالي</h4>
+        <form id="editPledgeForm">
+            <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+                <div class="form-control"><label>اسم المتبرع / المؤسسة *</label><input type="text" id="editDonorName" required></div>
+                <div class="form-control"><label>رقم هاتف التواصل *</label><input type="text" id="editDonorPhone" required></div>
+            </div>
+            <div class="form-control">
+                <label>تفاصيل المساهمة أو المبلغ المتعهد به بالكامل *</label>
+                <textarea id="editAmountDetails" rows="2" required style="width: 100%; padding: 8px; font-family:'Cairo';"></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button type="button" onclick="cancelPledgeEdit()" style="padding: 6px 15px; background: #999; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight:600;">إلغاء التعديل</button>
+                <button type="submit" style="padding: 6px 20px; background: #27ae60; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight:600;">حفظ وتحديث التعهد 💾</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- كشف التعهدات مع زيادة أعمدة الإجراءات وعرض الـ Smart Allocator -->
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.88rem;">
+            <thead>
+                <tr style="background: #f1f2f6; color: #0E4736;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">المتبرع / الجهة</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">بيانات المراسلة</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">نوع وتفاصيل المساهمة</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">الحالة وتدفق التخصيص</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">التحكم الإداري</th>
+                </tr>
+            </thead>
+            <tbody id="pledgesListTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- النافذة المنبثقة التفاعلية المخصصة لتفعيل "الربط اللوجستي الذكي" وإسناد الكمية المستلمة -->
+<div id="smartAllocatorModal" class="operation-modal" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); font-family: 'Cairo', sans-serif;">
+    <div class="modal-content-card" style="background-color: #fff; margin: 12% auto; padding: 25px; border-radius: 8px; width: 45%; max-width: 550px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); position: relative; direction: rtl; text-align: right;">
+        <h3 style="color: #0E4736; border-bottom: 2px solid #eef2f0; padding-bottom: 10px; margin-bottom: 15px;">🤖 معالج نظام الربط اللوجستي الذكي</h3>
+        <p style="font-size: 0.85rem; color: #555; margin-bottom: 15px;" id="allocatorPromptText">يرجى توجيه هذه المساهمة المستلمة وربطها بأحد بنود الاحتياجات الميدانية العاجلة الجارية الآن:</p>
+        
+        <form id="smartAllocatorForm">
+            <div class="form-control">
+                <label>اختر بند الاحتياج المستهدف من غرف العمليات *</label>
+                <select id="allocatorTargetNeedSelect" required style="font-family:'Cairo'; font-weight:600; padding:8px;"></select>
+            </div>
+            <div class="form-control">
+                <label>الكمية المستلمة الفريش المراد إدراجها بعداد التمويل *</label>
+                <input type="number" id="allocatorQtyToAdd" min="1" value="1" required style="padding:8px;">
+            </div>
+            <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+                <button type="button" onclick="closeAllocatorModal()" style="padding: 6px 15px; background: #999; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight:600;">إغلاق وتخزين معلق</button>
+                <button type="submit" style="padding: 6px 20px; background: #0E4736; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight:600;">تأكيد توجيه التمويل العيني 🚀</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+        <!-- تبويب 8: نشر فرصة تطوعية ميدانية ملحة -->
+        <!-- تبويب 7: نشر فرصة تطوعية ميدانية ملحة (المطور بنظام الشارات والفرز الفني) -->
+<div id="tab-opps" class="admin-tab-content panel-card auth-restricted admin-supervisor-only">
+    <h3>🧑‍🤝‍🧑 نشر وإدارة الفرص التطوعية الميدانية الملحة</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">نشر طلب استدعاء متطوعين عاجل لغرف الاستجابة، وتحديد المهارات التخصصية المطلوبة بنظام شارات الفرز الفني.</p>
+
+    <form id="addOpportunityForm" style="margin-top: 15px;">
+        <div class="form-control">
+            <label>عنوان المهمة والفرصة التطوعية العاجلة *</label>
+            <input type="text" id="oppTitle" required placeholder="مثال: إزالة مخلفات وفتح ممرات">
+        </div>
+        <div class="form-control">
+            <label>الشرح التفصيلي لمهام العمل الميداني المستهدف *</label>
+            <textarea id="oppDesc" rows="2" required style="width: 100%; padding: 8px; font-family:'Cairo';" placeholder="شرح تفصيلي مقتضب عن طبيعة العمل والممرات الجاري فتحها..."></textarea>
+        </div>
+        
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <div class="form-control">
+                <label>النطاق الجغرافي للمهمة الميدانية *</label>
+                <input type="text" id="oppRegion" required placeholder="مثال: بنت جبيل، عيترون...">
+            </div>
+            <!-- حقن نظام الشارات والمهارات المطلوبة المضاف حديثاً لغرفة الاستدعاء -->
+            <div class="form-control">
+                <label>🛠️ الشارة والمهارة التخصصية المطلوبة (Skill Badge) *</label>
+                <select id="oppRequiredSpecialty" required style="font-family:'Cairo'; font-weight:600;">
+                    <option value="none">🟢 شارة: ميداني عام (بدون تخصص فني)</option>
+                    <option value="engineering">📐 شارة: هندسة وتخطيط فني</option>
+                    <option value="electricity">⚡ شارة: كهرباء وصيانة شبكات ضخ</option>
+                    <option value="logistics">📦 شارة: لوجستيات وإمداد وتوضيب مساعدات</option>
+                    <option value="materials">🛠️ شارة: مواد فنية وترميم بيوت</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+            <div class="form-control">
+                <label>العدد المطلوب من المبادرين *</label>
+                <input type="number" id="oppReqCount" min="1" value="5" required>
+            </div>
+            <div class="form-control">
+                <label>توقيت وموعد التجمع والانطلاق *</label>
+                <input type="text" id="oppWorkTime" required placeholder="مثال: السبت - 8:00 صباحاً">
+            </div>
+        </div>
+        <!-- حقل ظاهري مخفي للتوافق مع البنية النصية السابقة للموقع -->
+        <input type="hidden" id="oppCampDisplay" value="تطوع ميداني">
+
+        <button type="submit" class="btn-action" style="background: var(--primary-color);">تعميم ونشر الفرصة التطوعية المخصصة فوراً 🚀</button>
+    </form>
+
+    <h4 style="margin-top: 35px; color: #0E4736;">📋 كشف المتابعة والتحكم بالفرص والنداءات التطوعية النشطة حياً</h4>
+    <div style="overflow-x: auto; margin-top: 15px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.85rem;">
+            <thead>
+                <tr style="background: #f1f2f6; color: #0E4736;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">المهمة التطوعية</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">المنطقة والتوقيت</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">الشارة والمهارة الفنية</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">العدد والتحكم</th>
+                </tr>
+            </thead>
+            <tbody id="volunteerOpportunitiesTableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+        <!-- تبويب 8: كشف طلبات المتطوعين والمبادرين الجدد -->
+        <!-- تبويب 8: كشف طلبات المتطوعين والمبادرين الجدد المطور بالفلترة المتقدمة المتعددة والـ CRUD -->
+<div id="tab-volunteers" class="admin-tab-content panel-card auth-restricted admin-supervisor-only">
+    <h3>📋 كشف طلبات المتطوعين والمبادرين الجدد</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 20px;">استعراض مصفوفة طلبات المتطوعين الواردة حياً من الموقع، وفرز مهاراتهم لتشكيل الفرق الميدانية العاجلة.</p>
+
+    <!-- 🔍 لوحة التصفية والفلترة المتقدمة المتعددة المضافة حديثاً (Multi-Filter System) -->
+    <div style="background: #f8faf9; border: 1px solid #eef2f0; border-right: 5px solid #0E4736; padding: 15px; border-radius: 6px; margin-bottom: 25px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: flex-end;">
+        <div class="form-control" style="margin-bottom:0;">
+            <label style="font-size:0.8rem; font-weight:700; color:#0E4736;">📍 تصفية النطاق الجغرافي</label>
+            <select id="filterVolunteerRegion" onchange="filterVolunteersLive()" style="font-family:'Cairo'; font-weight:600; padding:8px;">
+                <option value="">🌍 عرض كل المناطق والساحات</option>
+                <option value="بنت جبيل">بنت جبيل</option>
+                <option value="الخيام">الخيام</option>
+                <option value="صور">صور</option>
+                <option value="الهرمل">الهرمل</option>
+            </select>
+        </div>
+        <div class="form-control" style="margin-bottom:0;">
+            <label style="font-size:0.8rem; font-weight:700; color:#0E4736;">🛠️ تصفية شارة المهارة</label>
+            <select id="filterVolunteerSpecialty" onchange="filterVolunteersLive()" style="font-family:'Cairo'; font-weight:600; padding:8px;">
+                <option value="">⚙️ عرض كل التخصصات الفنية</option>
+                <option value="none">عام الميدان</option>
+                <option value="engineering">📐 هندسة</option>
+                <option value="electricity">⚡ كهرباء</option>
+                <option value="logistics">📦 لوجستيات</option>
+                <option value="materials">🛠️ مواد فنية</option>
+            </select>
+        </div>
+        <div class="form-control" style="margin-bottom:0;">
+            <label style="font-size:0.8rem; font-weight:700; color:#0E4736;">📅 تصفية أيام الإتاحة</label>
+            <select id="filterVolunteerDays" onchange="filterVolunteersLive()" style="font-family:'Cairo'; font-weight:600; padding:8px;">
+                <option value="">🗓️ عرض كل فترات التفرغ</option>
+                <option value="7 أيام">7 أيام (تفرغ مطلق)</option>
+                <option value="خمسة">خمسة أيام</option>
+                <option value="السبت">يوم السبت/الأحد</option>
+            </select>
+        </div>
+        <button onclick="resetVolunteerFilters()" class="btn-action" style="background:#888; padding:8px; font-size:0.85rem; height:38px; margin-bottom:0;">🔄 تفريغ الفلاتر</button>
+    </div>
+
+    <!-- نموذج مخفي تفاعلي مخصص لتعديل المهارات الميدانية للمتطوع -->
+    <div id="editVolunteerFormWrapper" style="display: none; background: #fffdf6; border: 1px solid #f6ecdc; border-top: 4px solid #C19A4B; padding: 20px; border-radius: 6px; margin-bottom: 25px;">
+        <h4 style="color: #C19A4B; margin-bottom: 15px;">✏️ تحديث التقييم والمهارة الفنية للمبادر</h4>
+        <form id="editVolunteerForm">
+            <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+                <div class="form-control"><label>اسم المتطوع بالكامل *</label><input type="text" id="editVolName" required></div>
+                <div class="form-control"><label>رقم الهاتف اللبناني/الدولي *</label><input type="text" id="editVolPhone" required></div>
+            </div>
+            <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+                <div class="form-control"><label>نطاق التواجد / القرية *</label><input type="text" id="editVolRegion" required></div>
+                <div class="form-control">
+                    <label>الشارة الفنية المعتمدة للمبادر *</label>
+                    <select id="editVolSpecialty" required style="font-family:'Cairo'; font-weight:600;">
+                        <option value="none">عام الميدان</option>
+                        <option value="engineering">📐 هندسة</option>
+                        <option value="electricity">⚡ كهرباء</option>
+                        <option value="logistics">📦 لوجستيات</option>
+                        <option value="materials">🛠️ مواد فنية</option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top:10px;">
+                <button type="button" onclick="cancelVolunteerEdit()" style="padding: 6px 15px; background: #999; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight:600;">إلغاء المراجعة</button>
+                <button type="submit" style="padding: 6px 20px; background: #27ae60; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight:600;">حفظ وتثبيت المصفوفة 💾</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- كشف مصفوفة طلبات المتطوعين مكتملة الأعمدة -->
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.88rem;">
+            <thead>
+                <tr style="background: #f1f2f6; color: #0E4736;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">الاسم الكامل</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">رقم الهاتف الواتساب</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">النطاق والمنطقة</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">التخصص والشارات الفنية</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">الإتاحة والتحكم</th>
+                </tr>
+            </thead>
+            <tbody id="volunteersListTable"></tbody>
+        </table>
+    </div>
+</div>
+        <!-- تبويب 9: الإعلام والنشرات البريدية -->
+      <!-- تبويب 9: الإعلام والنشرات البريدية المطور بمحرر نصوص WYSIWYG وعدادات الكفاءة -->
+<div id="tab-news" class="admin-tab-content panel-card auth-restricted admin-only">
+    <h3>📰 الإعلام، صناعة التقارير والنشرات البريدية للمشتركين</h3>
+    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">إرسال النشرات البريدية المنسقة للمبادرين والمشتركين، وصناعة ونشر التقارير الميدانية بالمنصة.</p>
+
+    <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 30px;">
+        
+        <!-- القسم الأول: صانع وإرسال النشرات البريدية بمحرر النصوص المطور -->
+        <div>
+            <h4 style="color: #0E4736; margin-bottom: 12px;">✉️ صانع وإرسال النشرات البريدية الفورية</h4>
+            <form id="sendNewsletterForm">
+                <div class="form-control">
+                    <label>عنوان البريد / موضوع النشرة الطارئة *</label>
+                    <input type="text" id="emailSubject" required placeholder="موضوع الخبر أو النشرة البريدية">
+                </div>
+                
+                <!-- 🛠️ شريط أدوات محرر النصوص المتطور WYSIWYG التفاعلي المضاف حديثاً -->
+                <div style="background: #eee; border: 1px solid #ccc; border-bottom: none; padding: 6px 10px; border-radius: 4px 4px 0 0; display: flex; gap: 6px;">
+                    <button type="button" onclick="executeEditorCommand('bold')" style="padding: 2px 8px; font-weight: bold; cursor: pointer; border: 1px solid #aaa; background:#fff; border-radius:3px;">B</button>
+                    <button type="button" onclick="executeEditorCommand('italic')" style="padding: 2px 8px; font-style: italic; cursor: pointer; border: 1px solid #aaa; background:#fff; border-radius:3px;">I</button>
+                    <button type="button" onclick="executeEditorCommand('underline')" style="padding: 2px 8px; text-decoration: underline; cursor: pointer; border: 1px solid #aaa; background:#fff; border-radius:3px;">U</button>
+                    <button type="button" onclick="insertLinkInEditor()" style="padding: 2px 6px; cursor: pointer; border: 1px solid #aaa; background:#fff; border-radius:3px; font-size:0.75rem;">🔗 رابط</button>
+                    <button type="button" onclick="insertImageInEditor()" style="padding: 2px 6px; cursor: pointer; border: 1px solid #aaa; background:#fff; border-radius:3px; font-size:0.75rem;">🖼️ صورة URL</button>
+                </div>
+                
+                <!-- الحاوية القابلة للتعديل الحركي كبديل متطور للتكست-إيريا التقليدي[cite: 71] -->
+                <div id="emailRichEditor" contenteditable="true" placeholder="اكتب تفاصيل النشرة الميدانية هنا بالصيغة الغنية..." style="width: 100%; min-height: 180px; padding: 12px; border: 1px solid #ccc; border-radius: 0 0 4px 4px; background: #fff; font-family: 'Cairo'; overflow-y: auto; outline: none; line-height: 1.6; margin-bottom:15px;"></div>
+                
+                <button type="submit" id="sendNewsletterBtn" class="btn-action">إرسال النشرة إلى كافة المشتركين آليّاً 🚀</button>
+            </form>
+
+            <!-- 📊 جدول إحصائي مصغر لمراقبة كفاءة سيرفر الإرسال الحقيقي المضاف حديثاً[cite: 71] -->
+            
+            <h5 style="margin-top: 25px; color: #0E4736; margin-bottom: 8px;">📊 مؤشر كفاءة تسليم سيرفر Gmail الحقيقي:</h5>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center; margin-bottom: 15px;">
+                <div style="background: #f6ffed; border: 1px solid #b7eb8f; padding: 10px; border-radius: 4px;">
+                    <div style="font-size: 0.8rem; font-weight: 700; color: #52c41a;">📨 رسائل مرسلة بنجاح</div>
+                    <div style="font-size: 1.6rem; font-weight: bold; color: #52c41a;" id="stats-email-success">0</div>
+                </div>
+                <div style="background: #fff1f0; border: 1px solid #ffa39e; padding: 10px; border-radius: 4px;">
+                    <div style="font-size: 0.8rem; font-weight: 700; color: #f5222d;">⚠️ تسليم فشل / عطل</div>
+                    <div style="font-size: 1.6rem; font-weight: bold; color: #f5222d;" id="stats-email-failed">0</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- القسم الثاني: نشر خبر أو تحديث ميداني بالصور مع ميزات الـ CRUD كاملة -->
+        <div>
+            <h4 style="color: #0E4736; margin-bottom: 12px;" id="newsFormHeaderTitle">📰 نشر خبر أو نداء ميداني على المنصة</h4>
+            <form id="addNewsForm" enctype="multipart/form-data">
+                <div class="form-control"><label>عنوان التقرير الإخباري *</label><input type="text" id="newsTitle" required></div>
+                <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 0;">
+                    <div class="form-control">
+                        <label>تصنيف الخبر الميداني *</label>
+                        <select id="newsCategory" style="font-family:'Cairo'; font-weight:600;">
+                            <option value="news">📰 خبر عام</option>
+                            <option value="urgent_alert">🚨 نداء عاجل</option>
+                            <option value="field_update" selected>🚜 تحديث ميداني</option>
+                        </select>
+                    </div>
+                    <div class="form-control"><label>المنطقة / البلدة الجغرافية *</label><input type="text" id="newsRegion" required></div>
+                </div>
+                <div id="urgentFieldsWrapper" style="background: #fff5f5; padding: 12px; border-radius:4px; margin-bottom:15px; display: none; border:1px solid #ffa39e;">
+                    <label style="font-weight:700; color:#cf1322;"><input type="checkbox" id="isUrgentBanner"> تفعيل كأعلى نداء عاجل بالشريط الزاحف</label>
+                    <div style="display:flex; gap:10px; margin-top:8px;">
+                        <input type="number" id="targetQty" placeholder="الكمية المستهدفة (مثال: 1000)">
+                        <input type="number" id="currentQty" placeholder="الكمية المحققة حالياً">
+                    </div>
+                </div>
+                <div class="form-control"><label>النص الكامل للخبر والبيانات الميدانية *</label><textarea id="newsContent" rows="4" required style="width: 100%; padding: 8px; font-family:'Cairo'; line-height:1.5;"></textarea></div>
+                <div class="form-control"><label>صورة التقرير المرفقة (Cover Image) *</label><input type="file" id="newsImage" accept="image/*"></div>
+                <button type="submit" id="newsSubmitBtn" class="btn-action" style="background: #c19a4b;">نشر التحديث الإخباري الميداني الآن 🚀</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- جداول كشوفات المشتركين وأرشيف المقالات المنشورة للتحكم بها -->
+    <div class="grid-sections" style="grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+       <div>
+    <h4 style="color: #0E4736; margin-bottom: 10px;">📧 قائمة العناوين المشتركة بالنشرة البريدية للمنصة</h4>
+    <div style="max-height: 180px; overflow-y: auto; border: 1px solid #ddd; border-radius:4px;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.82rem;">
+            <thead>
+                <tr style="background:#eee;">
+                    <th style="padding:6px; border:1px solid #ddd;">المعرف</th>
+                    <th style="padding:6px; border:1px solid #ddd;">البريد الإلكتروني المستهدف</th>
+                    <th style="padding:6px; border:1px solid #ddd;">حالة آخر إرسال</th>
+                    <th style="padding:6px; border:1px solid #ddd; text-align:center;">الإجراء</th>
+                </tr>
+            </thead>
+            <tbody id="subscribersList"></tbody>
+        </table>
+    </div>
+</div>
+        <div>
+            <h4 style="color: #0E4736; margin-bottom: 10px;">📰 أرشيف المذكرة وجدول المقالات الإخبارية المنشورة</h4>
+            <div style="max-height: 180px; overflow-y: auto; border: 1px solid #ddd; border-radius:4px;">
+                <table style="width:100%; border-collapse:collapse; font-size:0.82rem;">
+                    <thead><tr style="background:#eee;"><th>عنوان التقرير</th><th>النطاق</th><th style="text-align:center;">إدارة التحديث</th></tr></thead>
+                    <tbody id="adminNewsArchiveTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- تبويب 10: صندوق المراسلات والشكاوى المطور بنظام التوجيه -->
+<div id="tab-messages" class="admin-tab-content panel-card auth-restricted admin-only">
+    <h3>📥 صندوق المراسلات والطلبات والشكاوى الواردة حياً (تواصل معنا)</h3>
+    <div style="overflow-x: auto; margin-top: 15px;">
+        <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.85rem;">
+            <thead>
+                <tr style="background: #f1f2f6; color: #0E4736;">
+                    <th style="padding: 10px; border: 1px solid #ddd;">المرسل</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">رقم الهاتف</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">نوع المراسلة</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">الموضوع</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">نص الرسالة / الطلب الميداني</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">الحالة</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">التوجيه إلى</th>
+                    <th style="padding: 10px; border: 1px solid #ddd;">إجراء</th>
+                </tr>
+            </thead>
+            <tbody id="contactMessagesListTable"></tbody>
+        </table>
+    </div>
+</div>
+
+    </div>
+</div>
+<!-- النافذة المنبثقة التفاعلية المخصصة لعرض التفاصيل المالية واللوجستية العميقة لمسارات الاستجابة -->
+<div id="operationDetailsModal" class="operation-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); font-family: 'Cairo', sans-serif;">
+    <div class="modal-content-card" style="background-color: #fff; margin: 10% auto; padding: 25px; border-radius: 8px; width: 50%; max-width: 600px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); position: relative; direction: rtl; text-align: right;">
+        <span onclick="closeOperationModal()" style="position: absolute; left: 20px; top: 15px; font-size: 24px; font-weight: bold; color: #aaa; cursor: pointer; transition: color 0.2s;">&times;</span>
+        <h3 id="modalOpTitle" style="color: #0E4736; border-bottom: 2px solid #eef2f0; padding-bottom: 10px; margin-bottom: 20px;">🚜 تفاصيل مسار العمل الميداني</h3>
+        
+        <div class="modal-body-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9rem; line-height: 1.8;">
+            <div>📌 <b>النطاق الجغرافي:</b> <span id="modalOpRegion">..</span></div>
+            <div>⚡ <b>نسبة الإنجاز الحالي:</b> <span id="modalOpProgress" style="font-weight: 700; color: #52c41a;">0%</span></div>
+            <div>💵 <b>الميزانية المرصودة بالكامل:</b> <span id="modalOpAllocated" style="font-weight: 700; color: #0E4736;">$0</span></div>
+            <div>📉 <b>الميزانية المستهلكة ميدانياً:</b> <span id="modalOpConsumed" style="font-weight: 700; color: #cf1322;">$0</span></div>
+            <div style="grid-column: span 2; background: #f8faf9; padding: 10px; border-radius: 4px; border-right: 4px solid #C19A4B; margin-top: 10px;">
+                🚛 <b>المعدات الثقيلة المخصصة للميدان:</b> <br>
+                <span id="modalOpEquipment" style="font-weight: 700; color: #333;">بدون معدات ثقيلة</span>
+            </div>
+        </div>
+        <button onclick="closeOperationModal()" class="btn-action" style="background: #0E4736; margin-top: 20px; width: auto; float: left; padding: 8px 25px;">إغلاق النافذة 🔒</button>
+    </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

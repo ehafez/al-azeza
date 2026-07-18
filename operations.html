@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عمليات الاستجابة النشطة | منصة أعزاء</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="operations.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo">
+                <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+            </div>
+             <nav class="nav-links">
+                <a href="index.html" >الرئيسية</a>
+                <a href="camps.html">مخيمات الاستجابة</a> 
+                <a href="operations.html" class="active">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+                <a href="volunteer.html">تطوّع</a>
+                <a href="news.html">الأخبار</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="about.html"> عن أعزاء</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://wa.me/96171123456" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp style-icon"></i> تواصل عبر واتساب</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="operations-hero" style="background-image: linear-gradient(to bottom, rgba(14,71,54,0.85), rgba(14,71,54,0.92)), url('/picture/1.jpg');">
+        <div class="container hero-inside">
+            <span class="breadcrumb">الرئيسية › عمليات الاستجابة</span>
+            <h1>عمليات الاستجابة النشطة</h1>
+            <p>نعمل مع الفرق المحلية والشركاء على الأرض لتلبية الاحتياجات العاجلة وإعادة الحياة إلى القرى والبلدات خطوة بخطوة، ومنطقة تلو أخرى.</p>
+        </div>
+    </section>
+
+    <section class="ops-counter-bar">
+        <div class="container counters-grid">
+            <div class="counter-item">
+                <span class="c-icon"><i class="fas fa-box-open"></i></span>
+                <h3 id="stat-count">8</h3>
+                <p>عمليات نشطة في مناطق مختلفة</p>
+            </div>
+            <div class="counter-item">
+                <span class="c-icon"><i class="fas fa-user-friends"></i></span>
+                <h3 id="stat-volunteers">5,432</h3>
+                <p>متطوع مشارك</p>
+            </div>
+            <div class="counter-item">
+                <span class="c-icon"><i class="fas fa-users"></i></span>
+                <h3 id="stat-beneficiaries">12,846</h3>
+                <p>مستفيد حتى اليوم</p>
+            </div>
+            <div class="counter-item">
+                <span class="c-icon"><i class="fas fa-tasks"></i></span>
+                <h3 id="stat-tasks">1,247</h3>
+                <p>مهمة منفذة</p>
+            </div>
+            <div class="counter-item">
+                <span class="c-icon"><i class="fas fa-hand-holding-usd"></i></span>
+                <h3 id="stat-support">2.4M+</h3>
+                <p>قيمة الدعم (مساهمات عينية ومالية)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="filter-section container">
+        <div class="filter-wrapper">
+            <div class="search-box">
+                <input type="text" id="searchOp" placeholder="ابحث عن منطقة أو عملية...">
+            </div>
+            <div class="select-box">
+                <select id="filterRegion">
+                    <option value="all">كل المناطق</option>
+                    <option value="بنت جبيل">بنت جبيل</option>
+                    <option value="خيام">الخيام</option>
+                    <option value="صور">صور</option>
+                    <option value="مرجعيون">مرجعيون</option>
+                </select>
+            </div>
+            <div class="select-box">
+                <select id="filterType">
+                    <option value="all">كل أنواع العمليات</option>
+                    <option value="infrastructure">بنية تحتية</option>
+                    <option value="logistics">لوجستي ونقل</option>
+                    <option value="aid">إغاثي ودعم أسر</option>
+                </select>
+            </div>
+            <div class="select-box">
+                <select id="filterStatus">
+                    <option value="all">كل الحالات</option>
+                    <option value="active">نشطة</option>
+                    <option value="in_progress">قيد التنفيذ</option>
+                    <option value="recent">حديثة</option>
+                    <option value="planned">مخططة</option>
+                </select>
+            </div>
+            <button class="btn-reset" id="btnReset"><i class="fas fa-sync-alt"></i> إعادة تعيين</button>
+        </div>
+
+        <div class="grid-header-meta">
+            <span class="results-count">جميع العمليات (<span id="ops-count-badge">0</span>)</span>
+            <div class="layout-toggle">
+                <button class="toggle-btn active" id="view-grid"><i class="fas fa-th-large"></i></button>
+                <button class="toggle-btn" id="view-list"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container operations-grid-container">
+        <div class="ops-dynamic-grid" id="opsContainer"></div>
+    </main>
+
+    <section class="legend-section container">
+        <h4>مفتاح أنواع الاحتياجات</h4>
+        <div class="legend-grid">
+            <div class="legend-item"><i class="fas fa-tint legend-ic blue"></i> مياه</div>
+            <div class="legend-item"><i class="fas fa-bolt legend-ic yellow"></i> كهرباء</div>
+            <div class="legend-item"><i class="fas fa-snowplow legend-ic green"></i> رفع ركام</div>
+            <div class="legend-item"><i class="fas fa-apple-alt legend-ic red"></i> غذاء</div>
+            <div class="legend-item"><i class="fas fa-heartbeat legend-ic pink"></i> صحة</div>
+            <div class="legend-item"><i class="fas fa-home legend-ic brown"></i> مأوى</div>
+            <div class="legend-item"><i class="fas fa-book legend-ic purple"></i> تعليم</div>
+            <div class="legend-item"><i class="fas fa-handshake legend-ic gold"></i> تكافل</div>
+            <div class="legend-item"><i class="fas fa-seedling legend-ic grass"></i> سبل العيش</div>
+            <div class="legend-item"><i class="fas fa-wrench legend-ic gray"></i> أدوات</div>
+            <div class="legend-item"><i class="fas fa-cubes legend-ic dark-blue"></i> أخرى</div>
+        </div>
+    </section>
+
+    <section class="support-cta container">
+        <div class="cta-banner-wrapper">
+            <div class="cta-text">
+                <h3>كل عملية تحتاج إلى دعمك</h3>
+                <p>ساهم بوقتك أو بمواردك لمساعدة الأهالي والفرق الميدانية على الاستمرار.</p>
+            </div>
+            <div class="cta-actions">
+                <a href="donate.html" class="btn-cta-gold"><i class="fas fa-hand-holding-heart"></i> أريد أن أتبرع أو أقدم مورداً</a>
+                <a href="volunteer.html" class="btn-cta-green"><i class="fas fa-user-plus"></i> أريد أن أتطوع</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="logo">
+                    <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+                </div>
+                <p>مبادرة مجتمعية إنسانية مستقلة، نعمل مع المتطوعين والشركاء للاستجابة للاحتياجات وبناء الإنسان نحو مستقبل أفضل بالكامل.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">عن المبادرة</a>
+                <a href="operations.html">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+            </div>
+            <div class="footer-contact">
+                <h4>تواصل معنا</h4>
+                <p><i class="fas fa-phone-alt style-icon-footer"></i> +961 71 123 456</p>
+                <p><i class="fas fa-envelope style-icon-footer"></i> info@ezzai.org</p>
+                <p><i class="fas fa-map-marker-alt style-icon-footer"></i> لبنان - قضاء بنت جبيل</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة لمبادرة أعزاء للاستجابة المجتمعية 2026 &copy;</p>
+        </div>
+    </footer>
+
+    <script src="operations.js"></script>
+</body>
+</html>

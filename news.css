@@ -1,0 +1,162 @@
+/* ==========================================================================
+   ملف news.css المحدث بالكامل لدعم الهاتف والأجهزة اللوحية
+   ========================================================================== */
+
+:root {
+    --primary-color: #0E4736;   
+    --secondary-color: #C19A4B; 
+    --text-dark: #333333;
+    --text-light: #666666;
+    --bg-light: #F4F7F6;
+    --white: #FFFFFF;
+    --font-family: 'Cairo', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-family); direction: rtl; text-align: right; background-color: var(--bg-light); color: var(--text-dark); }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+/* الهيدر الموحد */
+.main-header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; width: 100%;}
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; }
+.logo img { height: 55px; object-fit: contain; }
+.nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; margin: 0 12px; font-size: 0.95rem; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary-color); border-bottom: 2px solid var(--primary-color); padding-bottom: 4px; }
+.btn-whatsapp { background-color: #128C7E; color: #fff; text-decoration: none; padding: 8px 18px; border-radius: 4px; font-weight: 600; font-size: 0.85rem; }
+
+/* البانر الـ Hero */
+.news-hero { width: 100%; padding: 50px 0; color: #fff; background-size: cover; background-position: center; }
+.hero-inside h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; }
+.hero-inside p { font-size: 1.05rem; max-width: 700px; opacity: 0.95; line-height: 1.6; }
+
+/* شريط النداء العاجل */
+.urgent-alert-section { margin-top: -25px; position: relative; z-index: 10; padding: 0 !important; }
+.urgent-alert-wrapper { background: #fff1f0; border: 1px solid #ffa39e; border-radius: 6px; padding: 20px 25px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+.alert-right { display: flex; align-items: center; gap: 15px; }
+.alert-badge-bell { background: #E74C3C; color: #fff; padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; animation: pulse 2s infinite; }
+.urgent-alert-wrapper h3 { font-size: 1.15rem; color: #a8071a; font-weight: 700; }
+.link-details { color: var(--text-light); text-decoration: none; font-size: 0.85rem; font-weight: 600; margin-right: 10px; }
+
+.alert-left-progress { width: 320px; }
+.progress-labels { display: flex; justify-content: space-between; font-size: 0.8rem; color: #555; margin-bottom: 5px; font-weight: 600; }
+.progress-labels strong { color: #000; font-size: 0.9rem; }
+.progress-bar-bg { width: 100%; height: 6px; background: #e8e8e8; border-radius: 3px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: #E74C3C; border-radius: 3px; }
+
+/* شريط التصفية والبحث */
+.filter-tools-section { padding: 35px 0 10px 0; }
+.filter-top-row { background: #fff; padding: 15px; border-radius: 6px; display: flex; gap: 15px; border: 1px solid #eef2f0; box-shadow: 0 2px 8px rgba(0,0,0,0.01); margin-bottom: 20px; }
+.search-box { flex: 2; }
+.search-box input { width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; outline: none; }
+.select-box { flex: 1; }
+.select-box select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-family); font-size: 0.9rem; background: #fff; outline: none; }
+.btn-reset-images, .btn-reset-filters { padding: 0 20px; background: #f1f2f6; border: 1px solid #ddd; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.9rem; }
+
+.categories-tabs-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
+.categories-tabs-scroll::-webkit-scrollbar { height: 4px; }
+.tab-btn { padding: 8px 18px; background: #fff; border: 1px solid #ddd; border-radius: 20px; font-family: var(--font-family); font-size: 0.85rem; font-weight: 600; color: var(--text-dark); cursor: pointer; white-space: nowrap; transition: all 0.3s; }
+.tab-btn.active, .tab-btn:hover { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+
+/* توزيع المحتوى وجريدة الأخبار */
+.news-main-layout { display: flex; gap: 30px; padding: 25px 0; align-items: flex-start; }
+.news-feed-grid { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
+.news-main-card { background: #fff; border-radius: 8px; overflow: hidden; border: 1px solid #eef2f0; box-shadow: 0 4px 15px rgba(0,0,0,0.01); display: flex; flex-direction: column; }
+.news-card-img { height: 170px; background-size: cover; background-position: center; position: relative; }
+.news-cat-badge { position: absolute; top: 12px; right: 12px; padding: 3px 10px; border-radius: 4px; color: #fff; font-size: 0.75rem; font-weight: 700; }
+
+.cat-news { background-color: #34495E; }
+.cat-urgent_alert { background-color: #E74C3C; }
+.cat-field_update { background-color: #2ECC71; }
+.cat-new_operation { background-color: #9B59B6; }
+.cat-aid_delivery { background-color: #E67E22; }
+.cat-partnership { background-color: #C19A4B; }
+.cat-report { background-color: #3498DB; }
+
+.news-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.news-meta-row { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-light); margin-bottom: 10px; font-weight: 600; }
+.news-card-body h4 { font-size: 1.05rem; color: var(--primary-color); font-weight: 700; line-height: 1.5; margin-bottom: 10px; }
+.news-card-body p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+.btn-read-more { background: none; border: none; font-family: var(--font-family); color: var(--secondary-color); font-weight: 700; font-size: 0.85rem; cursor: pointer; text-align: left; margin-top: auto; width: fit-content; }
+
+/* شريط التايم لاين والجانبي */
+.news-sidebar-layout { width: 320px; display: flex; flex-direction: column; gap: 25px; flex-shrink: 0; }
+.sidebar-box { background: #fff; padding: 25px 20px; border-radius: 8px; border: 1px solid #eef2f0; box-shadow: 0 4px 15px rgba(0,0,0,0.01); }
+.sidebar-box h3 { color: var(--primary-color); font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; border-bottom: 2px solid #f8f9fa; padding-bottom: 8px; }
+
+.vertical-timeline-wrapper { position: relative; padding-right: 20px; border-right: 2px solid #eef2f0; margin-bottom: 15px; max-height: 400px; overflow: hidden; transition: max-height 0.5s ease; }
+.timeline-row-item { position: relative; margin-bottom: 20px; }
+.timeline-row-item::before { content: ""; width: 8px; height: 8px; background: var(--secondary-color); border-radius: 50%; position: absolute; right: -25px; top: 6px; border: 2px solid #fff; box-shadow: 0 0 0 2px var(--secondary-color); }
+.time-stamp-label { font-size: 0.75rem; color: var(--secondary-color); font-weight: 700; display: block; margin-bottom: 3px; }
+.timeline-row-item p { font-size: 0.85rem; color: var(--text-dark); line-height: 1.5; font-weight: 600; }
+.btn-view-all-timeline { width: 100%; padding: 8px; border: 1px solid #ddd; background: #fff; border-radius: 4px; font-family: var(--font-family); font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+
+.telegram-whatsapp-card { background: linear-gradient(135deg, #104e38, #072a1c); color: #fff; border: none; }
+.telegram-whatsapp-card h3 { color: var(--secondary-color); border-bottom-color: rgba(255,255,255,0.08); }
+.telegram-whatsapp-card p { font-size: 0.85rem; opacity: 0.9; line-height: 1.6; margin-bottom: 20px; }
+.btn-join-channel { display: block; width: 100%; text-align: center; padding: 10px; background: #128C7E; color: #fff; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.88rem; margin-bottom: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.btn-sidebar-contact { display: block; width: 100%; text-align: center; padding: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+.security-notice-card { background: #fafbfc; border-color: #e4e7eb; }
+.security-notice-card .notice-icon { color: var(--primary-color); font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; }
+.security-notice-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; margin-bottom: 8px; }
+
+.explore-regions-section { padding: 40px 0; }
+.block-section-title { color: var(--primary-color); font-size: 1.4rem; font-weight: 700; margin-bottom: 25px; }
+.regions-grid-flex { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; }
+.region-mini-tab { background: #fff; padding: 20px 10px; border-radius: 6px; border: 1px solid #eef2f0; text-align: center; cursor: pointer; transition: all 0.3s; }
+.region-mini-tab h4 { color: var(--primary-color); font-size: 1rem; font-weight: 700; margin: 6px 0 2px 0; }
+.region-mini-tab p { font-size: 0.75rem; color: var(--text-light); }
+.region-mini-tab:hover { border-color: var(--secondary-color); background: #fff9e6; }
+
+.bottom-news-subscribe { padding: 30px 0 50px 0; }
+.subscribe-banner-inside { padding: 40px; border-radius: 8px; color: #fff; text-align: center; background-size: cover; background-position: center; }
+.subscribe-banner-inside h3 { font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 8px; font-weight: 700; }
+.subscribe-banner-inside p { font-size: 1rem; opacity: 0.95; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.subscribe-form-inline { display: flex; max-width: 500px; margin: 0 auto; gap: 10px; }
+.subscribe-form-inline input { flex: 1; padding: 12px 15px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); font-family: var(--font-family); font-size: 0.9rem; background: rgba(255,255,255,0.08); color: #fff; outline: none; }
+.subscribe-form-inline button { padding: 0 25px; background: var(--secondary-color); color: #fff; border: none; border-radius: 4px; font-weight: 700; font-family: var(--font-family); cursor: pointer; font-size: 0.95rem; }
+
+.main-footer { background: #093024 !important; color: #fff; padding: 50px 0 20px 0; width: 100%; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.footer-logo { height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px; }
+.footer-about p { font-size: 0.95rem; color: #ddd; line-height: 1.7; }
+.footer-grid h4 { color: var(--secondary-color); margin-bottom: 25px; font-size: 1.2rem; font-weight: 700; }
+.footer-grid a { display: block; color: rgba(255,255,255,0.85); text-decoration: none; margin-bottom: 14px; font-size: 0.95rem; }
+.footer-grid a:hover { color: var(--secondary-color); }
+.footer-contact p { font-size: 0.95rem; color: #eee; margin-bottom: 12px; }
+.footer-bottom { text-align: center; padding-top: 25px; font-size: 0.9rem; color: #ccc; }
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    70% { transform: scale(1.03); box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+/* ==========================================================================
+   🚨 التجاوب الشامل للهواتف والأجهزة اللوحية
+   ========================================================================== */
+@media (max-width: 1200px) { 
+    .news-feed-grid { grid-template-columns: repeat(2, 1fr); } 
+}
+
+@media (max-width: 992px) {
+    .navbar { flex-direction: column; gap: 12px; text-align: center; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 5px; }
+    .news-main-layout { flex-direction: column; }
+    .news-sidebar-layout { width: 100%; }
+    .urgent-alert-wrapper { flex-direction: column; text-align: center; gap: 15px; }
+    .alert-right { flex-direction: column; }
+    .alert-left-progress { width: 100%; }
+    .regions-grid-flex { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 650px) {
+    .filter-top-row { flex-direction: column; }
+    .search-box, .select-box, .btn-reset-filters { width: 100%; }
+    .btn-reset-filters { padding: 11px; text-align: center; }
+    .news-feed-grid, .regions-grid-flex { grid-template-columns: 1fr; }
+    .subscribe-form-inline { flex-direction: column; }
+    .subscribe-form-inline button { padding: 12px; width: 100%; }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة تسجيل دخول الفريق | منصة أعزاء</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0E4736;
+            --secondary-color: #C19A4B;
+            --bg-light: #F4F7F6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--bg-light); display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-container { background: #fff; width: 100%; max-width: 420px; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); border-top: 5px solid var(--primary-color); }
+        .login-header { text-align: center; margin-bottom: 30px; }
+        .login-header img { height: 60px; margin-bottom: 10px; }
+        .login-header h2 { color: var(--primary-color); font-size: 1.5rem; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; font-size: 0.9rem; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; text-align: right; font-size: 1rem; outline: none; transition: border 0.3s; }
+        .form-group input:focus { border-color: var(--secondary-color); }
+        .btn-submit { width: 100%; padding: 12px; background: var(--primary-color); color: #fff; border: none; border-radius: 5px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        .btn-submit:hover { background: #093024; }
+        .error-msg { color: #e74c3c; font-size: 0.85rem; margin-top: 10px; text-align: center; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-header">
+        <img src="/picture/logo1.jpeg" alt="لوغو أعزاء">
+        <h2>تسجيل دخول الفريق الميداني</h2>
+    </div>
+    <form id="loginForm">
+        <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" id="email" required placeholder="example@domain.com">
+        </div>
+        <div class="form-group">
+            <label>كلمة المرور</label>
+            <input type="password" id="password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn-submit">دخول اللوحة</button>
+        <div class="error-msg" id="errorMsg">عذراً، البريد الإلكتروني أو كلمة المرور غير صحيحة.</div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorMsg = document.getElementById('errorMsg');
+
+        try {
+            const response = await fetch('http://localhost:3000/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await response.json();
+            
+            if (data.success) {
+                // حفظ بيانات الجلسة البسيطة
+                localStorage.setItem('user', JSON.stringify(data.user));
+                window.location.href = 'admin.html';
+            } else {
+                errorMsg.style.display = 'block';
+            }
+        } catch (err) {
+            console.error(err);
+            errorMsg.textContent = "خطأ في الاتصال بالسيرفر";
+            errorMsg.style.display = 'block';
+        }
+    });
+</script>
+</body>
+</html>

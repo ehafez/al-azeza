@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مخيمات الاستجابة الميدانية وورش التأهيل | منصة أعزاء</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="camps.css">
+</head>
+<body>
+
+    <!-- الهيدر الموحد للمنصة -->
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo">
+                <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="camps.html" class="active">مخيمات الاستجابة</a>
+                <a href="operations.html">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+                <a href="volunteer.html">تطوّع</a>
+                <a href="news.html">الأخبار</a>
+                <a href="contact.html">تواصل معنا</a>
+                <a href="about.html">عن أعزاء</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://wa.me/96171123456" target="_blank" class="btn-whatsapp">📞 تواصل عبر واتساب</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم البانر الرئيسي -->
+    <section class="camps-hero" style="background-image: linear-gradient(to bottom, rgba(14,71,54,0.85), rgba(14,71,54,0.92)), url('/picture/1.jpg');">
+        <div class="container hero-inside">
+            <span class="breadcrumb">الرئيسية › مخيمات الاستجابة</span>
+            <h1>مخيمات الاستجابة والورش التدريبية</h1>
+            <p>نُجدول المخيمات السكنية والنهارية لتأهيل الكوادر الشبابية وتدريب المتطوعين على المهارات الفنية الميدانية، لضمان استجابة منظمة وفعالة في كافة القرى والبلدات.</p>
+        </div>
+    </section>
+
+    <!-- شريط التصفية والبحث الديناميكي -->
+    <section class="filter-section container">
+        <div class="filter-wrapper">
+            <div class="search-box">
+                <input type="text" id="searchCamp" placeholder="ابحث عن مخيم أو موقع جغرافي...">
+            </div>
+            <div class="select-box">
+                <select id="filterCampType">
+                    <option value="all">كل أنواع الإقامة</option>
+                    <option value="day">🌞 مخيم نهاري</option>
+                    <option value="residential">⛺ سكني كامل</option>
+                </select>
+            </div>
+            <div class="select-box">
+                <select id="filterRegion">
+                    <option value="all">كل المناطق</option>
+                    <option value="الهرمل">الهرمل</option>
+                    <option value="بنت جبيل">بنت جبيل</option>
+                    <option value="صور">صور</option>
+                    <option value="الخيام">الخيام</option>
+                </select>
+            </div>
+            <button class="btn-reset" id="btnResetCamps">🔄 إعادة تعيين</button>
+        </div>
+
+        <div class="grid-header-meta">
+            <span class="results-count">المخيمات المتاحة حالياً (<span id="camps-count-badge">0</span>)</span>
+        </div>
+    </section>
+
+    <!-- الحاوية الديناميكية لضخ كروت المخيمات -->
+    <main class="container camps-grid-container">
+        <div class="camps-dynamic-grid" id="campsContainer">
+            <!-- يتم ضخ الكروت حياً عبر الجافاسكريبت هنا -->
+        </div>
+    </main>
+
+    <!-- النافذة المنبثقة التفاعلية لطلب الانضمام الفوري للمخيم -->
+    <div id="registerCampModal" class="camp-modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" id="btnCloseModal">&times;</span>
+            <h3>📝 طلب انتساب لمخيم استجابة ميداني</h3>
+            <p id="modalCampName" style="color: var(--secondary-color); font-weight: 700; margin-bottom: 15px;"></p>
+            
+            <form id="campRegisterForm">
+                <input type="hidden" id="targetCampId">
+                <div class="form-group">
+                    <label>الاسم الثلاثي الكامل *</label>
+                    <input type="text" id="regVolName" required placeholder="اكتب اسمك الثلاثي الكريم">
+                </div>
+                <div class="form-group">
+                    <label>رقم هاتف الواتساب المباشر (مع رمز الدولة) *</label>
+                    <input type="tel" id="regVolPhone" required placeholder="مثال: 96171123456+">
+                </div>
+                <div class="form-group">
+                    <label>مجال مهاراتك أو تخصصك الفني *</label>
+                    <input type="text" id="regVolField" required placeholder="مثال: دعم لوجستي، إسعاف، صيانة كهرباء...">
+                </div>
+                <button type="submit" class="btn-submit-reg">إرسال طلب الانضمام وتأكيد الانتساب 🚀</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- الفوتر الموحد للمنصة -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="logo">
+                    <img src="/picture/logo1.jpeg" alt="شعار منصة أعزاء">
+                </div>
+                <p>مبادرة مجتمعية إنسانية مستقلة، نعمل مع المتطوعين والشركاء للاستجابة للااحتياجات وبناء الإنسان نحو مستقبل أفضل بالكامل.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <a href="index.html">الرئيسية</a>
+                <a href="about.html">عن المبادرة</a>
+                <a href="operations.html">عمليات الاستجابة</a>
+                <a href="donate.html">الدعم والتبرع</a>
+            </div>
+            <div class="footer-contact">
+                <h4>تواصل معنا</h4>
+                <p>📞 +961 71 123 456</p>
+                <p>📧 info@ezzai.org</p>
+                <p>📍 لبنان - قضاء بنت جبيل</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة لمبادرة أعزاء للاستجابة المجتمعية 2026 &copy;</p>
+        </div>
+    </footer>
+
+    <script src="camps.js"></script>
+</body>
+</html>
