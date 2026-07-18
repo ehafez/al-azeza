@@ -121,8 +121,33 @@ body { font-family: var(--font-family); direction: rtl; text-align: right; backg
 }
 
 @media (max-width: 992px) {
-    .navbar { flex-direction: column; gap: 12px; }
-    .nav-links { flex-wrap: wrap; justify-content: center; gap: 5px; }
+    .navbar { flex-direction: column; gap: 12px; text-align: center; padding: 12px 0; }
+    
+    /* 🚀 تطبيق شريط التمرير الأفقي الانسيابي */
+    .nav-links {
+        display: flex;
+        flex-wrap: nowrap; 
+        overflow-x: auto;  
+        overflow-y: hidden;
+        width: 100%;       
+        padding: 8px 5px;
+        gap: 15px;         
+        justify-content: flex-start; 
+        -webkit-overflow-scrolling: touch; 
+        scroll-snap-type: x mandatory;
+    }
+    .nav-links a {
+        margin: 0;
+        padding: 6px 12px;
+        font-size: 0.88rem;
+        white-space: nowrap; 
+        scroll-snap-align: start;
+        flex-shrink: 0;      
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .nav-actions { margin-top: 5px; gap: 8px; width: 100%; justify-content: center; }
     .volunteer-hero { padding: 50px 0; text-align: center; }
     .hero-inside h1 { font-size: 2.2rem; }
     .hero-inside p { max-width: 100%; }
@@ -138,11 +163,6 @@ body { font-family: var(--font-family); direction: rtl; text-align: right; backg
 }
 
 @media (max-width: 650px) {
-    .features-inside-grid, .fields-grid-layout, .opps-live-grid, .flow-steps-grid, .form-grid-twin { 
-        grid-template-columns: 1fr; 
-    }
-    .btn-hero, .btn-wiz {
-        width: 100%;
-        text-align: center;
-    }
+    .features-inside-grid, .fields-grid-layout, .opps-live-grid, .flow-steps-grid, .form-grid-twin { grid-template-columns: 1fr; }
+    .btn-hero, .btn-wiz { width: 100%; text-align: center; }
 }

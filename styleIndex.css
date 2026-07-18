@@ -350,60 +350,44 @@ body {
         padding: 8px 5px;
         gap: 15px;         /* مسافة ثابتة ومريحة بين الروابط */
         justify-content: flex-start; /* بدء الترتيب من اليمين بانتظام */
-        
-        /* تفعيل ميزة السحب الانسيابي الحركي على هواتف الآيفون والأندرويد */
         -webkit-overflow-scrolling: touch; 
         scroll-snap-type: x mandatory;
     }
-
-    /* تحسين أبعاد الروابط وجعلها كأزرار تبويب مرنة قابلة للمس */
     .nav-links a {
         margin: 0;
         padding: 6px 12px;
         font-size: 0.88rem;
-        white-space: nowrap; /* منع الكلمات داخل الرابط الواحد من الانقسام */
+        white-space: nowrap; 
         scroll-snap-align: start;
-        flex-shrink: 0;      /* منع المتصفح من ضغط حجم الرابط */
+        flex-shrink: 0;      
     }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* إخفاء شريط التمرير الافتراضي للمتصفحات تماماً للحفاظ على جمالية التصميم */
-    .nav-links::-webkit-scrollbar {
-        display: none; /* إخفاء في متصفحات كروم وسفاري وإيدج */
-    }
-    .nav-links {
-        -ms-overflow-style: none;  /* إخفاء في متصفح إكسبلورر القديم */
-        scrollbar-width: none;     /* إخفاء في متصفح فايرفوكس */
-    }
-
-    /* الحفاظ على تناسق أزرار العمليات أسفل القائمة الزاحفة */
     .nav-actions {
         margin-top: 5px;
         gap: 8px;
         width: 100%;
         justify-content: center;
     }
-}
-@media (max-width: 650px) {
-    .stats-grid {
+    .cards-grid, .news-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .stat-item:first-child {
-        grid-column: span 2;
-    }
-    .cards-grid, .ops-cards-container, .daily-stats-grid, .news-grid, .footer-grid {
+    .banners-grid {
         grid-template-columns: 1fr;
     }
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
+    .footer-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 35px; 
     }
-    .btn {
-        width: 100%;
-    }
-    .promo-banner {
-        padding: 25px;
-    }
-    .promo-banner h3 {
-        font-size: 1.5rem;
-    }
+}
+
+@media (max-width: 650px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:first-child { grid-column: span 2; }
+    .cards-grid, .ops-cards-container, .daily-stats-grid, .news-grid, .footer-grid { grid-template-columns: 1fr; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn { width: 100%; }
+    .promo-banner { padding: 25px; }
+    .promo-banner h3 { font-size: 1.5rem; }
 }
