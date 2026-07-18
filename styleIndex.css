@@ -332,38 +332,57 @@ body {
 }
 
 @media (max-width: 992px) {
+    /* تنظيم الهيدر بشكل عمودي متناسق يفصل الشعار عن الروابط */
     .navbar {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         text-align: center;
+        padding: 12px 0;
+    }
+
+    /* 🚀 تحويل القائمة إلى شريط تمرير أفقي احترافي ومنع التداخل */
+    .nav-links {
+        display: flex;
+        flex-wrap: nowrap; /* منع الروابط من النزول لسطر جديد نهائياً */
+        overflow-x: auto;  /* تفعيل السحب الأفقي باللمس */
+        overflow-y: hidden;
+        width: 100%;       /* ملء عرض شاشة الهاتف بالكامل */
+        padding: 8px 5px;
+        gap: 15px;         /* مسافة ثابتة ومريحة بين الروابط */
+        justify-content: flex-start; /* بدء الترتيب من اليمين بانتظام */
+        
+        /* تفعيل ميزة السحب الانسيابي الحركي على هواتف الآيفون والأندرويد */
+        -webkit-overflow-scrolling: touch; 
+        scroll-snap-type: x mandatory;
+    }
+
+    /* تحسين أبعاد الروابط وجعلها كأزرار تبويب مرنة قابلة للمس */
+    .nav-links a {
+        margin: 0;
+        padding: 6px 12px;
+        font-size: 0.88rem;
+        white-space: nowrap; /* منع الكلمات داخل الرابط الواحد من الانقسام */
+        scroll-snap-align: start;
+        flex-shrink: 0;      /* منع المتصفح من ضغط حجم الرابط */
+    }
+
+    /* إخفاء شريط التمرير الافتراضي للمتصفحات تماماً للحفاظ على جمالية التصميم */
+    .nav-links::-webkit-scrollbar {
+        display: none; /* إخفاء في متصفحات كروم وسفاري وإيدج */
     }
     .nav-links {
-        flex-wrap: wrap;
+        -ms-overflow-style: none;  /* إخفاء في متصفح إكسبلورر القديم */
+        scrollbar-width: none;     /* إخفاء في متصفح فايرفوكس */
+    }
+
+    /* الحفاظ على تناسق أزرار العمليات أسفل القائمة الزاحفة */
+    .nav-actions {
+        margin-top: 5px;
+        gap: 8px;
+        width: 100%;
         justify-content: center;
-        gap: 10px;
-    }
-    .nav-links a {
-        margin: 0 6px;
-    }
-    .hero-section {
-        height: auto;
-        padding: 60px 0;
-    }
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    .cards-grid, .news-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .banners-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 35px; 
     }
 }
-
 @media (max-width: 650px) {
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
